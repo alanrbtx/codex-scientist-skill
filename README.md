@@ -1,5 +1,7 @@
 # Codex Scientist Skill
 
+![Codex Scientist: Research faster. Write with evidence.](assets/codex-scientist-banner.png)
+
 Codex Scientist Skill packages `Researcher`, an evidence-first Codex skill that accelerates
 scientific research from an initial idea to a submission-ready paper. It shortens the repeated
 work of mapping prior art, sharpening claims, designing decisive experiments, interpreting
