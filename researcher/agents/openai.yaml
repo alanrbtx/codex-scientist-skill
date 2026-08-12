@@ -1,0 +1,4 @@
+interface:
+  display_name: "Researcher"
+  short_description: "Evidence-first research and paper writing"
+  default_prompt: "Use $researcher to audit this research idea, define a defensible claim, design decisive experiments, and shape the paper around verified evidence."
