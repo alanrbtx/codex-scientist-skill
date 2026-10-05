@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "null-difference",
+      "prompt": "Does the registered difference support directional superiority? Report the effect and independent-unit count.",
+      "sources": [
+        {
+          "source_id": "R1",
+          "locator": "table 1",
+          "text": "Synthetic prospective paired evaluation: 12 independent training seeds, 100 episodes per seed. Method minus baseline success rate: +2 percentage points; registered 95% CI [-1,+5]. No equivalence margin."
+        }
+      ],
+      "expected": {
+        "verdict": "unresolved",
+        "effect": 2,
+        "outer_n": 12,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "R1"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "No superiority or equality claim; preserve percentage-point units and CI.",
+      "should_trigger": true
+    },
+    {
+      "id": "ratio-null",
+      "prompt": "Does this result establish a reduction? Report the ratio as effect.",
+      "sources": [
+        {
+          "source_id": "R2",
+          "locator": "table 1",
+          "text": "Synthetic prospective evaluation: 20 independent subjects. Treatment/control error ratio 1.04; registered 95% CI [0.97,1.12]. Lower is better."
+        }
+      ],
+      "expected": {
+        "verdict": "unresolved",
+        "effect": 1.04,
+        "outer_n": 20,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "R2"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Use null ratio 1, not 0; do not interpret 1.04 as a 4% reduction.",
+      "should_trigger": true
+    },
+    {
+      "id": "outer-unit",
+      "prompt": "Is the stated sample size of 3000 independent training replications defensible? Report the true independent training count; no effect estimate is available.",
+      "sources": [
+        {
+          "source_id": "R3",
+          "locator": "design",
+          "text": "Three independently trained seeds. Each seed is evaluated on 1000 episodes. Draft claims n=3000 independent training replications."
+        }
+      ],
+      "expected": {
+        "verdict": "not_supported",
+        "effect": null,
+        "outer_n": 3,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "R3"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Treat episodes as nested observations; do not invent variance or an effect.",
+      "should_trigger": true
+    },
+    {
+      "id": "post-hoc",
+      "prompt": "Classify the positive result claimed as prospective confirmation. Report the selected effect and independent-unit count.",
+      "sources": [
+        {
+          "source_id": "R4",
+          "locator": "analysis history",
+          "text": "After inspecting eight independent seed results, the author selected the best of 20 endpoints. The selected gain is 7 percentage points. This endpoint was not registered before inspection."
+        }
+      ],
+      "expected": {
+        "verdict": "exploratory",
+        "effect": 7,
+        "outer_n": 8,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "R4"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Do not promote selected post-hoc evidence to confirmation.",
+      "should_trigger": true
+    },
+    {
+      "id": "missing-evidence",
+      "prompt": "Can you verify the reported improvement from the available source? Answer only; do not ask for files or launch work.",
+      "sources": [
+        {
+          "source_id": "status",
+          "locator": "paragraph 1",
+          "text": "A progress note says final error improved by 18%, but provides no result file, interval, sample count, or run ID. The underlying evaluation is unavailable."
+        }
+      ],
+      "expected": {
+        "verdict": "open",
+        "effect": null,
+        "outer_n": null,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "status"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Treat 18% as reported only. Do not output it as a verified effect or invent a cohort.",
+      "should_trigger": true
+    },
+    {
+      "id": "novelty-counterexample",
+      "prompt": "Assess the broad claim: first action-conditioned latent robot dynamics method. Do not browse; use only this supplied fictional corpus.",
+      "sources": [
+        {
+          "source_id": "prior-A",
+          "locator": "section 3",
+          "text": "Learns action-conditioned latent dynamics for one robot in simulation."
+        },
+        {
+          "source_id": "proposal",
+          "locator": "section 2",
+          "text": "Claims the first action-conditioned latent robot dynamics method. Its distinct feature is an encoder shared across three morphologies, evaluated only in simulation."
+        }
+      ],
+      "expected": {
+        "verdict": "not_supported",
+        "effect": null,
+        "outer_n": null,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "prior-A",
+          "proposal"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Reject broad priority; narrower cross-morphology novelty remains open outside this corpus.",
+      "should_trigger": true
+    },
+    {
+      "id": "downstream-scope",
+      "prompt": "Can the paper claim lower closed-loop error on this benchmark without first proving transfer or the internal mechanism? No additional experiment is requested.",
+      "sources": [
+        {
+          "source_id": "R5",
+          "locator": "table 2",
+          "text": "Registered matched closed-loop simulation evaluation on 16 independent paired seeds. Final-error relative reduction 12%, 95% CI [4%,19%]. No shift, hardware, or mechanism experiment."
+        }
+      ],
+      "expected": {
+        "verdict": "supported",
+        "effect": 12,
+        "outer_n": 16,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "R5"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Support the scoped claim; do not require a mandatory transfer or mechanism stage.",
+      "should_trigger": true
+    },
+    {
+      "id": "repeat-aggregation",
+      "prompt": "Is repeating this aggregation for reproducibility allowed? Classify support for that action, not for a new scientific claim. No new experiment should be run.",
+      "sources": [
+        {
+          "source_id": "protocol",
+          "locator": "analysis",
+          "text": "Frozen inputs, exclusions, endpoint, and aggregation code are unchanged. The terminal result has already been opened. A reviewer requests a second execution of the identical calculation to verify the table."
+        }
+      ],
+      "expected": {
+        "verdict": "supported",
+        "effect": null,
+        "outer_n": null,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "protocol"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Permit verification; preserve analysis and log discrepancies; no exactly-once restriction.",
+      "should_trigger": true
+    },
+    {
+      "id": "abstract-only",
+      "prompt": "Rewrite only this abstract in deliverable, using the supplied evidence: Our robot controller generalizes universally. It improves everything through a novel latent model. Include the verified effect and outer-unit count in the structured fields.",
+      "sources": [
+        {
+          "source_id": "evaluation",
+          "locator": "table 2",
+          "text": "16 paired simulation seeds on one benchmark; final position error is reduced by 12% relative to a matched baseline, reported CI [4%,19%]. No shift or hardware experiment."
+        }
+      ],
+      "expected": {
+        "verdict": "supported",
+        "effect": 12,
+        "outer_n": 16,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "evaluation"
+        ],
+        "deliverable_required": true
+      },
+      "manual_rubric": "Return a concise replacement abstract; no universal claim, extra plan, or invented causal evidence.",
+      "should_trigger": true
+    },
+    {
+      "id": "pdf-only",
+      "prompt": "Review only the visible paper excerpt. Does it establish superiority over a matched baseline? Do not use the unprovided repository or author explanations.",
+      "sources": [
+        {
+          "source_id": "paper",
+          "locator": "page 4, table 1",
+          "text": "Visible PDF excerpt: our method has a mean success rate of 78%. No comparator, uncertainty, or independent-unit count appears in the provided artifact."
+        }
+      ],
+      "expected": {
+        "verdict": "open",
+        "effect": null,
+        "outer_n": null,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "paper"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Judge the visible artifact; identify missing comparison without fabricating a baseline.",
+      "should_trigger": true
+    },
+    {
+      "id": "resume-negative",
+      "prompt": "Continue the interrupted task: report the completed registered result. Should another experiment run? Report the effect and outer-unit count.",
+      "sources": [
+        {
+          "source_id": "handoff",
+          "locator": "state",
+          "text": "Task: report the primary endpoint. All ten independent paired seeds completed; checksums verified. No retry is pending; no extra compute was authorized."
+        },
+        {
+          "source_id": "aggregate",
+          "locator": "primary",
+          "text": "Registered success-rate difference is -2 percentage points, 95% CI [-4,-0.5]. Higher is better; primary superiority criterion failed."
+        }
+      ],
+      "expected": {
+        "verdict": "not_supported",
+        "effect": -2,
+        "outer_n": 10,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [
+          "handoff",
+          "aggregate"
+        ],
+        "deliverable_required": false
+      },
+      "manual_rubric": "Report the negative; do not rerun, replace seeds, or treat completed work as blocked.",
+      "should_trigger": true
+    },
+    {
+      "id": "ordinary-edit",
+      "prompt": "Correct only the grammar in deliverable: The results is saved. This is a wording task, with no scientific claim to assess.",
+      "sources": [],
+      "expected": {
+        "verdict": "not_applicable",
+        "effect": null,
+        "outer_n": null,
+        "needs_user_input": false,
+        "run_new_experiment": false,
+        "required_sources": [],
+        "deliverable_required": true
+      },
+      "manual_rubric": "Return only the corrected sentence as deliverable; no scientific audit.",
+      "should_trigger": false
+    }
+  ]
+}

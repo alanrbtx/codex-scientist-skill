@@ -2,6 +2,10 @@
 
 Use this reference to turn verified evidence into a coherent, readable scientific argument.
 
+For changed claims, citations, or numbers, preserve their source and exact locator using
+[evidence records](evidence-records.md). A localized wording edit needs only the affected passage;
+the section patterns below are guidance for the corresponding section, not mandatory extra work.
+
 ## Contents
 
 - [Choose one load-bearing sentence](#choose-one-load-bearing-sentence)

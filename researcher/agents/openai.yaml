@@ -1,4 +1,4 @@
 interface:
   display_name: "Researcher"
   short_description: "Evidence-first research and paper writing"
-  default_prompt: "Use $researcher to audit this research idea, define a defensible claim, design decisive experiments, and shape the paper around verified evidence."
+  default_prompt: "Use $researcher to complete this research task within the requested scope and tie the result to verified evidence."

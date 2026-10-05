@@ -1,0 +1,960 @@
+{
+  "version": "0.2.0",
+  "date": "2026-10-05",
+  "backend": "Codex app collaboration subagents; imported output",
+  "reasoning_effort": "medium",
+  "trials_per_model_arm_per_round": 1,
+  "tasks_per_batch": 12,
+  "corpus_sha256": "223702f2962628897287709eb5fb7d19a4915b22bd7d1d20449d36927adafc75",
+  "schema_sha256": "d4c5c60de9b78683d26b031a91bcf62a0ee155e32ea8ac212743685e894a4acc",
+  "grader_sha256": "fbc0a1701716bb1c46f99cde064affe38d945b66a3571dcb6f0ab88c33a9c316",
+  "reviewer": "Orchestrating Codex assistant; manual reading, not an independent human reviewer",
+  "token_usage": null,
+  "latency_seconds": null,
+  "verified_tool_trace": false,
+  "runs": [
+    {
+      "round": "pilot",
+      "model": "gpt-6-astra",
+      "arm": "baseline",
+      "prompt": "pilot/baseline-prompt.txt",
+      "prompt_sha256": "8c3601d7c2c5a426cf414ec09aac64adcf2efb3c503142e77161b4bde2eb8599",
+      "skill_sha256": null,
+      "responses": "pilot/astra-baseline.json",
+      "responses_sha256": "8fb514756b3dad83dcbb8d1560c6ff60f4791dff1de09bcac6d41cf5c700013f",
+      "grade": {
+        "passed": 8,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "issue",
+              "findings": [
+                "The prose correctly says the interval crosses zero, but omits its bounds; the case rubric asks to preserve the CI."
+              ]
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 11
+      }
+    },
+    {
+      "round": "pilot",
+      "model": "gpt-6-astra",
+      "arm": "skill",
+      "prompt": "pilot/skill-prompt.txt",
+      "prompt_sha256": "c5254dcf1d5e04e7c853e368acd483da4306ad27d6d8c520d1880bd9335c9d78",
+      "skill_sha256": "20c107a6334d85dad11d45a374f2c088c8307c282ad368a9f138f0aac56c836c",
+      "responses": "pilot/astra-skill.json",
+      "responses_sha256": "1e377e02e0dae7b94b7b4d20d9db1c5e67aba613cbe85d374e83b2c6b6497a1b",
+      "grade": {
+        "passed": 10,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 12
+      }
+    },
+    {
+      "round": "pilot",
+      "model": "gpt-6.1-sol",
+      "arm": "baseline",
+      "prompt": "pilot/baseline-prompt.txt",
+      "prompt_sha256": "8c3601d7c2c5a426cf414ec09aac64adcf2efb3c503142e77161b4bde2eb8599",
+      "skill_sha256": null,
+      "responses": "pilot/sol-baseline.json",
+      "responses_sha256": "1360d8395f2ba9781b1f77402e84cc59f3065a35d744ccb38cad20fc3544713b",
+      "grade": {
+        "passed": 8,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "issue",
+              "findings": [
+                "The prose correctly says the interval crosses zero, but omits its bounds; the case rubric asks to preserve the CI."
+              ]
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 11
+      }
+    },
+    {
+      "round": "pilot",
+      "model": "gpt-6.1-sol",
+      "arm": "skill",
+      "prompt": "pilot/skill-prompt.txt",
+      "prompt_sha256": "c5254dcf1d5e04e7c853e368acd483da4306ad27d6d8c520d1880bd9335c9d78",
+      "skill_sha256": "20c107a6334d85dad11d45a374f2c088c8307c282ad368a9f138f0aac56c836c",
+      "responses": "pilot/sol-skill.json",
+      "responses_sha256": "c8e2c7199991361f5263cd3e3159f78e443a55d626cd976945e2606bfe031190",
+      "grade": {
+        "passed": 11,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "issue",
+              "findings": [
+                "Adds a 95% confidence level that the supplied source does not specify. Structured grading did not catch this prose error."
+              ]
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [
+              "verdict"
+            ],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 11
+      }
+    },
+    {
+      "round": "revised",
+      "model": "gpt-6-astra",
+      "arm": "baseline",
+      "prompt": "revised/baseline-prompt.txt",
+      "prompt_sha256": "539f7cf7aee3cc60c9ba3c3e9d806d1bda9e046683f9ce0b0e436839bdd58a7c",
+      "skill_sha256": null,
+      "responses": "revised/astra-baseline.json",
+      "responses_sha256": "ae4a251920c3a6dcfdf67a838942543b9c25023b4352af4e74d512fa7d127820",
+      "grade": {
+        "passed": 12,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 12
+      }
+    },
+    {
+      "round": "revised",
+      "model": "gpt-6-astra",
+      "arm": "skill",
+      "prompt": "revised/skill-prompt.txt",
+      "prompt_sha256": "7037b1fac564c9c293d85925c1de857cce8a888ea8f5691ff01bb352775da4e3",
+      "skill_sha256": "ced95912ebf6eefa767c0625398b1f17e34e65222376641aca6bea87309ff0c4",
+      "responses": "revised/astra-skill.json",
+      "responses_sha256": "25e371b0e7812baa792b695b18d260533cffa47d04a4ddb82f3055465cdbf72e",
+      "grade": {
+        "passed": 12,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 12
+      }
+    },
+    {
+      "round": "revised",
+      "model": "gpt-6.1-sol",
+      "arm": "baseline",
+      "prompt": "revised/baseline-prompt.txt",
+      "prompt_sha256": "539f7cf7aee3cc60c9ba3c3e9d806d1bda9e046683f9ce0b0e436839bdd58a7c",
+      "skill_sha256": null,
+      "responses": "revised/sol-baseline.json",
+      "responses_sha256": "533fcae83c86b19ad72dea2be9c3d083466341f9c6973101bda5b0b550c284aa",
+      "grade": {
+        "passed": 12,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [],
+            "manual_review": {
+              "status": "issue",
+              "findings": [
+                "The prose correctly says the interval crosses zero, but omits its bounds; the case rubric asks to preserve the CI."
+              ]
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 11
+      }
+    },
+    {
+      "round": "revised",
+      "model": "gpt-6.1-sol",
+      "arm": "skill",
+      "prompt": "revised/skill-prompt.txt",
+      "prompt_sha256": "7037b1fac564c9c293d85925c1de857cce8a888ea8f5691ff01bb352775da4e3",
+      "skill_sha256": "ced95912ebf6eefa767c0625398b1f17e34e65222376641aca6bea87309ff0c4",
+      "responses": "revised/sol-skill.json",
+      "responses_sha256": "82c5ad96f46a7db469fd0e6e4f91f14e3b8e20f2a777403860ec5e21493af802",
+      "grade": {
+        "passed": 12,
+        "total": 12,
+        "cases": [
+          {
+            "id": "null-difference",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ratio-null",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "outer-unit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "post-hoc",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "missing-evidence",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "novelty-counterexample",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "downstream-scope",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "repeat-aggregation",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "abstract-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "pdf-only",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "resume-negative",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          },
+          {
+            "id": "ordinary-edit",
+            "failures": [],
+            "manual_review": {
+              "status": "pass",
+              "findings": []
+            }
+          }
+        ],
+        "manual_cases_without_findings": 12
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic familiar fixtures; no held-out real-world tasks.",
+    "Tasks within a batch share context.",
+    "Both arms receive a structured source and response contract.",
+    "Skill arm receives all references; native discovery and progressive loading are untested.",
+    "Fresh agent contexts retain host policy; complete CLI-style isolation is not verified.",
+    "One trial cannot establish model rankings, causality, productivity or scientific-quality gains.",
+    "Revised prompts and skill were adjusted after viewing pilot responses."
+  ]
+}

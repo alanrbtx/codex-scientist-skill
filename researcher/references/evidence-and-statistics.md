@@ -118,7 +118,7 @@ removing the contradictory evidence is not.
 
 ## Preserve cohort and provenance boundaries
 
-For every cohort retain:
+For prospective confirmation and release validation, retain:
 
 - registration and protocol hashes;
 - code, dependency, and data manifests;
@@ -126,6 +126,11 @@ For every cohort retain:
 - terminal artifact manifests;
 - aggregation identity and run count;
 - timestamps and failure audit trails.
+
+For development, retain the input/cohort identity, configuration, outputs, and failure record needed
+to reproduce it. For retrospective evidence, record the provenance that exists and mark gaps;
+do not demand or invent an earlier registration. For a narrow answer, cite the existing artifact.
+Use [evidence records](evidence-records.md) when several claims or source versions need tracking.
 
 Do not combine development and confirmation, old and fresh seeds, or different protocol versions
 in the primary analysis. A pooled analysis may be reported explicitly as secondary if its
@@ -141,8 +146,12 @@ Before the registered terminal milestone, inspect only operational state:
 - artifact counts and hashes.
 
 Do not read training curves, seed summaries, result JSON, scientific metrics, or selective worker
-logs if doing so would unblind the analysis. After all units complete, verify provenance first,
-aggregate exactly once, then open the registered result.
+logs if doing so would unblind the analysis. At the registered unblinding milestone, verify
+provenance and apply the frozen analysis before opening the result. Repeating the same calculation
+on the same inputs for verification is allowed. Log discrepancies and corrections; do not select
+a new endpoint, exclusion, or analysis because the first result was unfavorable. A sequential
+design may have planned interim looks and stopping rules; follow those registered rules rather
+than imposing a universal requirement that every unit finish before any analysis.
 
 ## Classify failures before acting
 

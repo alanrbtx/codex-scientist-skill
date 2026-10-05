@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "verdict",
+    "answer",
+    "evidence",
+    "effect",
+    "outer_n",
+    "needs_user_input",
+    "run_new_experiment",
+    "deliverable"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "supported",
+        "not_supported",
+        "unresolved",
+        "open",
+        "exploratory",
+        "blocked",
+        "not_applicable"
+      ],
+      "description": "Apply this shared status vocabulary in both arms: supported = the supplied evidence supports the scoped claim/action; not_supported = contradicted by evidence or a completed directional result against the claim; unresolved = a valid comparison was conducted but uncertainty prevents a directional decision; open = required evidence is missing or unavailable; exploratory = a post-hoc result without prospective confirmation; blocked = completing the requested action requires unavailable access or authorization; not_applicable = no scientific claim/action is being assessed. Missing evidence takes open, not not_supported; an interval spanning the null takes unresolved."
+    },
+    "answer": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "locator"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "effect": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "outer_n": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "needs_user_input": {
+      "type": "boolean"
+    },
+    "run_new_experiment": {
+      "type": "boolean"
+    },
+    "deliverable": {
+      "type": "string"
+    }
+  }
+}

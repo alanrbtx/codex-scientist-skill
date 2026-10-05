@@ -2,161 +2,139 @@
 
 ![Codex Scientist: Research faster. Write with evidence.](assets/codex-scientist-banner.png)
 
-Codex Scientist Skill packages `Researcher`, an evidence-first Codex skill that accelerates
-scientific research from an initial idea to a submission-ready paper. It shortens the repeated
-work of mapping prior art, sharpening claims, designing decisive experiments, interpreting
-results, and turning verified evidence into clear scientific prose.
+`Researcher` is an evidence-first Codex skill for scientific judgment and paper development.
+It helps audit novelty, design comparisons, interpret results, and turn verified evidence into
+clear prose. It scales the workflow to the request: a question gets an answer, an abstract edit
+gets an abstract, and a submission gets the corresponding artifact checks.
 
-The speed comes from a reusable research workflow, not from lowering the evidence bar. Researcher
-acts as a skeptical coauthor: it keeps claims tied to artifacts, separates exploration from
-confirmation, surfaces material limitations, and helps researchers spend more time on scientific
-judgment and less time rebuilding the same process.
+The installable `researcher/` package contains instructions only. Development tools and fictional
+evaluation fixtures live outside it. No private research data, model weights, or credentials are
+included. The workflow's research-quality and productivity benefits have not been established by
+these small synthetic tests.
 
-The skill is domain-agnostic and instruction-only. It contains no datasets, experimental results,
-model weights, credentials, private project paths, or executable workloads.
+## What it covers
 
-## What it accelerates
+- Functional prior-art comparisons and bounded novelty claims.
+- Matched experiments, appropriate controls, and independent confirmation.
+- Statistical units, pairing, uncertainty, and exploratory versus confirmatory evidence.
+- Claim-to-source records with exact locations and numeric derivations.
+- Paper writing, localized revisions, negative findings, and manuscript review.
+- PDF/source checks, submission packaging, and destination verification.
 
-- audits literature and separates local implementation gaps from genuine novelty;
-- turns ideas into falsifiable claim–evidence contracts;
-- designs matched baselines, mechanism controls, ablations, and independent confirmation;
-- protects statistical-unit, pairing, cohort, provenance, and preregistration integrity;
-- distinguishes exploratory, development, confirmatory, replication, and external evidence;
-- writes and revises titles, abstracts, introductions, results, discussions, and limitations;
-- reports negative or unresolved findings honestly and with proportional emphasis;
-- performs reviewer-style manuscript evaluations;
-- audits PDF, LaTeX source, anonymity, margins, fonts, archives, hashes, and release variants.
+Claim types have distinct evidence requirements, not a mandatory sequence. A valid downstream
+result does not first need a transfer or mechanism study. Repeating an unchanged frozen analysis
+for verification is allowed; changing an analysis after seeing results does not make it prospective.
+
+## GPT-6 Astra and GPT-6.1 Sol
+
+The guidance preserves the user's selected model and existing authorization. When model selection
+is requested, `gpt-6.1-sol` is a candidate for bounded implementation and editing; `gpt-6-astra` is a
+candidate for difficult synthesis and conflicting evidence. This is a routing hypothesis to test
+on the actual workload, not a measured ranking.
+
+See [GPT-6 workflow](researcher/references/gpt-6-workflow.md) for effort selection, long-task state,
+bounded delegation, API/host distinctions, and official sources checked on 2026-10-05. Installing
+the skill does not switch models or change global configuration.
+
+## Installation
+
+Ask Codex to install the `researcher` subdirectory with its skill installer:
+
+```text
+Use $skill-installer to install the researcher skill from
+https://github.com/alanrbtx/codex-scientist-skill/tree/v0.2.0/researcher
+```
+
+Use `tree/main/researcher` instead for the latest development revision. For a manual installation:
+
+```sh
+git clone --branch v0.2.0 https://github.com/alanrbtx/codex-scientist-skill.git
+mkdir -p "$HOME/.agents/skills"
+ln -s "$PWD/codex-scientist-skill/researcher" "$HOME/.agents/skills/researcher"
+```
+
+Choose an unused destination; preserve any existing skill installation. For one project, place or
+link `researcher/` under that project's `.agents/skills/`. See the official
+[Codex skills documentation](https://developers.openai.com/codex/skills) for discovery details.
+
+## Usage and complete examples
+
+Invoke `$researcher` explicitly, or let Codex select it for requests matching its description.
+Ordinary grammar and formatting edits need no scientific workflow.
+
+```text
+Use $researcher to audit this idea against the supplied papers and identify the narrowest
+supported novelty claim.
+
+Use $researcher to interpret this paired evaluation, including the independent unit and uncertainty.
+
+Use $researcher to rewrite only this abstract around its strongest verified result.
+```
+
+Three [fictional worked examples](examples/novelty.md) include sources, a request, a finished answer,
+and the checks that matter:
+
+| Example | Decision |
+| --- | --- |
+| [Novelty audit](examples/novelty.md) | Reject broad priority when a functional counterexample exists. |
+| [Uncertain result](examples/uncertain-result.md) | Preserve an inconclusive comparison without claiming equality. |
+| [Abstract edit](examples/abstract.md) | Return the requested text with the verified effect and scope. |
 
 ## Repository layout
 
 ```text
-codex-scientist-skill/
-├── README.md
-├── LICENSE
-└── researcher/
-    ├── SKILL.md
-    ├── agents/
-    │   └── openai.yaml
-    └── references/
-        ├── research-design.md
-        ├── evidence-and-statistics.md
-        ├── paper-writing.md
-        ├── submission-audit.md
-        └── gpt-6-workflow.md
+researcher/
+  SKILL.md                         # Concise entry point
+  agents/openai.yaml               # Codex UI metadata
+  references/
+    research-design.md
+    evidence-and-statistics.md
+    evidence-records.md
+    paper-writing.md
+    submission-audit.md
+    gpt-6-workflow.md
+examples/                           # Three complete synthetic examples
+evals/                              # 12 decision fixtures, schema, published results
+scripts/                            # Offline validators and opt-in model runner
+tests/                              # Grader and validation regression checks
+.github/workflows/validate.yml       # Offline CI
+VERSION                             # Release version
 ```
 
-`SKILL.md` contains the core workflow. The references are loaded only when relevant, keeping
-the initial context compact.
+References load when relevant during ordinary use. The evaluation suite deliberately supplies all
+references to isolate the instruction-pack comparison; it does not test native skill activation.
 
-## GPT-6 Astra and GPT-6.1 Sol
+## Validation and evaluation
 
-The workflow includes guidance for `gpt-6-astra` and `gpt-6.1-sol`, checked against official OpenAI
-documentation on 2026-10-05. It preserves the user's selected model and existing authorization.
-When model selection is requested, Sol is a candidate for bounded implementation and editing;
-Astra is a candidate for difficult scientific synthesis and conflicting evidence. Evaluate this
-routing on the actual research tasks rather than assuming a universal winner.
+Use Python 3.10 or newer. Offline checks require only the pinned development dependency:
 
-The update emphasizes completion of authorized work, scoped verification, explicit handling of
-conflicting instructions, recoverable long-task state, and bounded delegation when authorized.
-Scientific evidence standards and execution restrictions remain independent of model choice.
-
-See [the GPT-6 workflow reference](researcher/references/gpt-6-workflow.md) for reasoning-effort
-guidance, API/host distinctions, and official sources. This is instruction guidance, not a model
-switch, API client, or claim of measured research-quality improvement.
-
-## Installation
-
-### With the Codex skill installer
-
-Ask Codex to install the `researcher` subdirectory from this repository:
-
-```text
-Use $skill-installer to install the researcher skill from
-https://github.com/alanrbtx/codex-scientist-skill/tree/main/researcher
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install -r requirements-dev.txt
+python3 scripts/validate.py
+python3 -m unittest discover -s tests -v
+git diff --check
 ```
 
-### Manual user installation
+CI checks skill metadata, local Markdown links, common private-data patterns, fixture structure,
+and grader regressions. Model calls are separate and require an explicit `--execute` flag and
+bounded run settings. See [evaluation instructions](evals/README.md) and the
+[v0.2.0 report](evals/results/v0.2.0/README.md) for methods, actual responses, failures, and limits.
+A passing fixture score is not evidence of real-world research quality or productivity.
 
-Codex loads personal skills from `$HOME/.agents/skills`:
+## Privacy and contributing
 
-```bash
-git clone https://github.com/alanrbtx/codex-scientist-skill.git "$HOME/codex-scientist-skill"
-mkdir -p "$HOME/.agents/skills"
-ln -s "$HOME/codex-scientist-skill/researcher" "$HOME/.agents/skills/researcher"
-```
+Keep contributions general and free of confidential project details. The skill operates within
+its host's permissions; it grants no access by itself. Automated private-data checks cover common
+patterns, so review new public artifacts as well. Keep local traces in ignored `evals/runs/` and
+publish only sanitized synthetic results.
 
-Codex detects skill changes automatically. Restart Codex if the skill does not appear.
-
-### Repository-scoped installation
-
-To make the skill available only inside one project, place or link it under the project root:
-
-```text
-.agents/skills/researcher/
-```
-
-See the official [OpenAI skill documentation](https://developers.openai.com/codex/skills) for
-skill discovery and distribution details.
-
-## Usage
-
-Invoke the skill explicitly with `$researcher`, or let Codex select it when a request matches its
-description.
-
-Example prompts:
-
-```text
-Use $researcher to audit this research idea and identify the narrowest defensible novelty claim.
-```
-
-```text
-Use $researcher to design a matched confirmatory experiment, including the statistical unit,
-primary endpoint, controls, success rule, and stop conditions.
-```
-
-```text
-Use $researcher to review only this PDF as an independent conference reviewer.
-```
-
-```text
-Use $researcher to rewrite this abstract around the strongest verified result without hiding
-material negative evidence.
-```
-
-## Design principles
-
-Researcher follows several strict defaults:
-
-1. Evidence precedes prose.
-2. Novelty is established through functional nearest neighbors, not exact-keyword absence.
-3. The outer statistical unit follows the data-generating process.
-4. Development evidence is not presented as independent confirmation.
-5. Representation metrics do not automatically establish downstream or deployment performance.
-6. Material negative evidence is retained once, clearly and proportionally.
-7. Public, anonymous, author-identified, and internal artifacts remain separate.
-8. Copies, builds, uploads, and releases are not called successful until the destination is checked.
-
-## Privacy and data access
-
-This repository is self-contained and does not include or connect to private research data. The
-skill does not embed internal project names, paths, results, identifiers, hashes, email addresses,
-API keys, or service credentials.
-
-When invoked, the skill operates within the permissions of its host. It may inspect files or use
-tools that the user has already made available to Codex, but it does not grant new access or send
-data anywhere by itself. Review the host's permissions and repository instructions before using it
-with sensitive material.
-
-## Contributing
-
-Keep contributions general, evidence-first, and free of project-specific or confidential details.
-Preserve progressive disclosure: put the core decision workflow in `SKILL.md` and detailed guidance
-in a directly linked file under `references/`.
-
-Before submitting a change, validate the `researcher/` directory with the current Codex
-`skill-creator` validator and scan the complete repository for secrets, private paths, and
-organization-specific identifiers.
+Put core decisions in `SKILL.md` and details in directly linked references. Add a targeted fixture
+when fixing a behavioral failure. Review generated prose as well as structured scores. Before a
+release, pass offline checks, update `VERSION`, and tag the verified commit as `v<VERSION>`; CI
+checks that a release tag matches the version file.
 
 ## License
 
-Released under the [MIT License](LICENSE).
+[MIT](LICENSE).

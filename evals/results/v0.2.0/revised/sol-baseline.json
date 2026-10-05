@@ -1,0 +1,199 @@
+{
+  "responses": [
+    {
+      "case_id": "null-difference",
+      "verdict": "unresolved",
+      "answer": "The registered interval spans zero, so directional superiority is unresolved. Episodes are nested within 12 independent training seeds.",
+      "evidence": [
+        {
+          "source_id": "R1",
+          "locator": "table 1"
+        }
+      ],
+      "effect": 2,
+      "outer_n": 12,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "ratio-null",
+      "verdict": "unresolved",
+      "answer": "The ratio interval spans one and does not establish a reduction.",
+      "evidence": [
+        {
+          "source_id": "R2",
+          "locator": "table 1"
+        }
+      ],
+      "effect": 1.04,
+      "outer_n": 20,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "outer-unit",
+      "verdict": "not_supported",
+      "answer": "There are three independent training replications; the 3000 episodes are nested evaluations, not independent training replications.",
+      "evidence": [
+        {
+          "source_id": "R3",
+          "locator": "design"
+        }
+      ],
+      "effect": null,
+      "outer_n": 3,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "post-hoc",
+      "verdict": "exploratory",
+      "answer": "The endpoint was selected after inspecting results from eight seeds and among 20 endpoints; its positive gain is exploratory, not prospective confirmation.",
+      "evidence": [
+        {
+          "source_id": "R4",
+          "locator": "analysis history"
+        }
+      ],
+      "effect": 7,
+      "outer_n": 8,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "missing-evidence",
+      "verdict": "open",
+      "answer": "The progress note alone cannot verify the reported improvement; underlying evaluation evidence is unavailable.",
+      "evidence": [
+        {
+          "source_id": "status",
+          "locator": "paragraph 1"
+        }
+      ],
+      "effect": null,
+      "outer_n": null,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "novelty-counterexample",
+      "verdict": "not_supported",
+      "answer": "Prior-A already learns action-conditioned latent robot dynamics, contradicting the broad first-method claim. Sharing an encoder across three morphologies is a narrower proposed distinction, whose priority is not established here.",
+      "evidence": [
+        {
+          "source_id": "prior-A",
+          "locator": "section 3"
+        },
+        {
+          "source_id": "proposal",
+          "locator": "section 2"
+        }
+      ],
+      "effect": null,
+      "outer_n": null,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "downstream-scope",
+      "verdict": "supported",
+      "answer": "The matched registered evaluation supports lower closed-loop final error on this simulation benchmark. Transfer or mechanism evidence is not required for that scoped empirical claim.",
+      "evidence": [
+        {
+          "source_id": "R5",
+          "locator": "table 2"
+        }
+      ],
+      "effect": 12,
+      "outer_n": 16,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "repeat-aggregation",
+      "verdict": "supported",
+      "answer": "Repeating the identical calculation on frozen inputs and unchanged analysis is allowed as a reproducibility check. Opening the result does not prohibit this repetition.",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "locator": "analysis"
+        }
+      ],
+      "effect": null,
+      "outer_n": null,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "abstract-only",
+      "verdict": "supported",
+      "answer": "The rewritten abstract states the supported benchmark result and its scope.",
+      "evidence": [
+        {
+          "source_id": "evaluation",
+          "locator": "table 2"
+        }
+      ],
+      "effect": 12,
+      "outer_n": 16,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": "We evaluate a robot controller on one simulation benchmark using 16 paired seeds and a matched baseline. The controller reduces final position error by 12% relative to the baseline, with a reported confidence interval of [4%, 19%]."
+    },
+    {
+      "case_id": "pdf-only",
+      "verdict": "open",
+      "answer": "A mean success rate of 78% without a comparator or uncertainty cannot establish superiority over a matched baseline.",
+      "evidence": [
+        {
+          "source_id": "paper",
+          "locator": "page 4, table 1"
+        }
+      ],
+      "effect": null,
+      "outer_n": null,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "resume-negative",
+      "verdict": "not_supported",
+      "answer": "The completed registered success-rate difference is -2 percentage points, with 95% CI [-4, -0.5], against superiority. All ten paired seeds are complete and verified; report this result without another experiment.",
+      "evidence": [
+        {
+          "source_id": "handoff",
+          "locator": "state"
+        },
+        {
+          "source_id": "aggregate",
+          "locator": "primary"
+        }
+      ],
+      "effect": -2,
+      "outer_n": 10,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": ""
+    },
+    {
+      "case_id": "ordinary-edit",
+      "verdict": "not_applicable",
+      "answer": "Grammar corrected.",
+      "evidence": [],
+      "effect": null,
+      "outer_n": null,
+      "needs_user_input": false,
+      "run_new_experiment": false,
+      "deliverable": "The results are saved."
+    }
+  ]
+}

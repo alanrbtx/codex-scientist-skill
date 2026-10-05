@@ -5,7 +5,7 @@ Use this reference to turn a broad idea into a falsifiable, defensible contribut
 ## Contents
 
 - [Start from the scientific question](#start-from-the-scientific-question)
-- [Place the intended claim on a ladder](#place-the-intended-claim-on-a-ladder)
+- [Match evidence to the claim type](#match-evidence-to-the-claim-type)
 - [Audit novelty by function](#audit-novelty-by-function)
 - [Build a claim-evidence matrix](#build-a-claim-evidence-matrix)
 - [Design matched comparisons](#design-matched-comparisons)
@@ -27,9 +27,9 @@ Do not begin with a method name and search for a problem. State the failure mode
 capability first, then ask whether the proposed mechanism is the shortest credible way to address
 it.
 
-## Place the intended claim on a ladder
+## Match evidence to the claim type
 
-Claims become progressively harder to defend:
+Choose the types of claim the work actually makes:
 
 1. **Existence:** the system can be trained or made to work.
 2. **Comparative:** it outperforms a matched alternative on a registered endpoint.
@@ -38,9 +38,11 @@ Claims become progressively harder to defend:
 5. **Downstream:** it improves a task or closed-loop outcome.
 6. **Deployment:** it works under real operational constraints.
 
-Do not skip levels. A lower representation loss does not establish downstream control, and
-simulation does not establish deployment. Choose the highest level directly supported by the
-planned evidence and name the remaining levels as non-claims.
+These are distinct evidence requirements, not ordered stages. A scoped downstream result can be
+supported without a transfer or mechanistic claim. A lower representation loss does not establish
+downstream control, and simulation does not establish hardware performance. Test the requested
+claim directly and state only the material boundaries of its scope. Adapt this menu for theoretical,
+observational, or qualitative work instead of forcing every contribution into an ML benchmark.
 
 ## Audit novelty by function
 
@@ -73,13 +75,15 @@ complete and the claim is precisely bounded.
 
 ## Build a claim-evidence matrix
 
-Before launching experiments or rewriting the paper, fill one row per intended claim:
+For a new experiment or a material change to the paper's claims, fill one row per intended claim.
+Reuse an existing record; a localized wording change needs only the affected claim and source:
 
-| Claim | Comparator | Primary endpoint | Outer unit | Required control | Evidence tier | Non-claim |
-|---|---|---|---|---|---|---|
+| Claim | Comparator | Endpoint / success rule | Outer unit | Required control | Evidence tier | Source and locator | Scope |
+|---|---|---|---|---|---|---|---|
 
-Every headline claim must have one decisive endpoint. If a claim needs several loosely related
-metrics to appear true, it is probably too broad.
+Each empirical headline claim needs a decisive endpoint or a predeclared joint rule. For a theorem,
+state the proposition and assumptions instead. Avoid selecting favorable metrics after inspection.
+Use [evidence records](evidence-records.md) for exact source identity and verification status.
 
 ## Design matched comparisons
 

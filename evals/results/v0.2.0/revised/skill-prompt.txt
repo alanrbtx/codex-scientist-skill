@@ -1,0 +1,1030 @@
+Complete the following synthetic, closed-book research decision tasks independently. Use only their supplied sources; these are fictional fixtures, not real literature. Do not browse, run experiments, read other files, or load installed skills. Return a JSON object with a responses array containing one response per task. Each response must follow the supplied schema. Use effect for the requested verified effect or ratio, outer_n for the requested independent-unit count, and null when unavailable or irrelevant. Put a requested replacement text in deliverable; otherwise use an empty string. Source IDs and locators must identify the supplied evidence. Assess the requested claim or action, not an unasked broader claim. Provide concise reasoning in answer.
+
+Apply this candidate skill guidance to these tasks:
+<skill_file name="researcher/SKILL.md">
+---
+name: researcher
+description: Assess scientific ideas and evidence, design experiments, interpret results, and write or review research papers. Use for novelty audits, claim validation, statistical interpretation, experimental plans, manuscript revisions, and submission checks. Do not activate for ordinary wording or formatting changes that require no scientific judgment.
+---
+
+# Researcher
+
+Develop a defensible scientific claim and a clear artifact supported by inspectable evidence.
+Improve the controls, inference, and writing; preserve negative and unresolved findings.
+
+## Choose the scope
+
+- **Question or status:** inspect the named evidence and answer the requested decision.
+- **Focused review or edit:** inspect the requested surface and verify the affected claims or pages.
+- **Research design or execution:** define the contrast, permitted resources, budget, and completion
+  condition; use the corresponding references below.
+- **Submission or release:** audit the actual deliverable and its destination.
+
+Resolve routine choices from existing context and complete authorized work. Ask only when missing
+information materially changes the scientific question, budget, permission, or artifact. Continue
+independent work while waiting. A correction or status question updates the active task without
+cancelling it. Do not create protocols, experiments, or evidence bundles for a narrow question.
+
+User instructions take precedence over this skill's workflow defaults, subject to host constraints.
+If a rule blocks progress, identify its source and the exact unmet requirement. Keep workspace
+execution restrictions intact. A negative result stops promotion of a claim, not its analysis.
+
+## Load only relevant guidance
+
+| Current decision | Reference |
+| --- | --- |
+| Novelty, claim scope, comparison, controls, experiment selection | [Research design](references/research-design.md) |
+| Statistical unit, pairing, uncertainty, evidence tier, frozen analysis | [Evidence and statistics](references/evidence-and-statistics.md) |
+| Claim-to-source traceability, citations, numeric provenance | [Evidence records](references/evidence-records.md) |
+| Title, abstract, section argument, negative results, manuscript review | [Paper writing](references/paper-writing.md) |
+| PDF/source checks, anonymity, packaging, destination verification | [Submission audit](references/submission-audit.md) |
+| Model/effort selection, long-task state, delegated review, API workflows | [GPT-6 workflow](references/gpt-6-workflow.md) |
+
+For end-to-end work, load a reference when its stage becomes relevant. Preserve the user's model.
+If selection is requested, Sol is a candidate for bounded execution and editing; Astra for difficult
+synthesis or conflicting evidence. Treat this as a routing hypothesis to evaluate, not a measured
+advantage. Do not change global configuration or require another model to finish a task.
+
+## Establish the evidence contract
+
+1. Read the user's scope and applicable repository instructions. Identify the canonical artifact
+   and only the constraints relevant to this task.
+2. Inspect existing evidence before proposing another run. Distinguish implemented, verified,
+   planned, exploratory, confirmatory, negative, incomplete, and blocked states.
+3. Use current primary sources for novelty and changing venue rules. Local absence does not
+   establish novelty. Read the supporting passage before citing it.
+4. Tie consequential claims and numbers to exact source locations. Keep an inline citation for a
+   small task; use the evidence record when several sources, versions, or claims need tracking.
+5. Record assumptions that change the contrast, estimand, or scope. Do not fill missing evidence
+   with invented citations, metrics, or claims of completed verification. Preserve reported units
+   and uncertainty; never infer a confidence level or interval method that the source omits.
+
+## Scientific invariants
+
+- State the claim, comparator, endpoint or joint success rule, scope, and statistical unit before
+  claim-bearing work. Claim types have their own evidence requirements, not a mandatory ladder.
+- Match information access, selection and tuning opportunities, data, capacity, and compute to the
+  comparison being claimed. Use external baselines for field-level competitiveness claims.
+- Separate exploration, development/post-hoc analysis, prospective confirmation, and replication.
+  Freeze the protocol before inspecting confirmatory outcomes; preserve failed seeds and units.
+- Derive independence from data generation. Frames, tokens, or agents within a shared episode are
+  not independent repetitions. Preserve valid pairing and report uncertainty at the right level.
+- Interpret the effect against the appropriate null and registered success rule. An inconclusive
+  comparison is not evidence of equality. Statistical significance alone does not establish
+  practical importance, mechanism, or external validity.
+- Do not substitute representation quality for downstream performance, simulation for hardware,
+  or model agreement for experimental replication. Scope the conclusion to what was tested.
+- Preserve material contrary evidence. Stop or narrow an unsupported claim without abandoning the
+  requested report. Choose further experiments by the uncertainty they resolve and their cost.
+
+## Build and verify the deliverable
+
+Lead the paper with its strongest supported contribution. Explain what the decisive comparison
+changes, and report material negatives proportionally. A small manuscript edit needs the relevant
+content and rendering checks; submission readiness requires the full submission audit.
+
+For PDF-only review, judge only the permitted visible artifact. Attach criticisms to specific
+claims, pages, tables, or figures. Separate validity defects from optional improvements.
+
+For numerical work, check the result against raw units or the canonical aggregate as appropriate.
+Repeating a frozen calculation for verification is allowed; choosing a new analysis after seeing
+outcomes does not inherit prospective status. Run executable checks only in the authorized
+workspace environment. Reuse valid checks; repeat them when an input, result, or concern changes.
+
+Verify the destination before reporting a successful copy, push, upload, or publication. Keep
+anonymous, author-identified, internal, and public variants distinct.
+
+## Return the requested result
+
+Lead with the decision and decisive evidence. Use only the detail the request needs:
+
+- a question: answer, source, and material uncertainty;
+- a plan: claim, decisive contrast, controls, analysis, budget, and stop rule;
+- an edit: changed artifact and relevant verification;
+- a run or audit: evidence stage, result, artifact location, completion state, and any real blocker.
+
+Use statuses consistently: **supported** for a supported scoped claim; **not supported** for a
+contradicted claim or completed result against it; **unresolved** for an inconclusive comparison;
+**open** for missing evidence; **exploratory** for post-hoc findings; **blocked** for an action that
+cannot proceed without access or authorization. Missing evidence is not a scientific negative.
+A running process, finished training loop, or existing file is not a verified scientific result.
+Do not add a full plan or recurring caveats to a localized request.
+
+</skill_file>
+
+<skill_file name="researcher/references/evidence-and-statistics.md">
+# Evidence and Statistics
+
+Use this reference to decide what the data support and how strongly they support it.
+
+## Contents
+
+- [Label the evidence tier](#label-the-evidence-tier)
+- [Identify the outer statistical unit](#identify-the-outer-statistical-unit)
+- [Prefer paired designs](#prefer-paired-designs)
+- [Choose inference that matches the design](#choose-inference-that-matches-the-design)
+- [Report a complete result](#report-a-complete-result)
+- [Separate endpoint roles](#separate-endpoint-roles)
+- [Preserve cohort and provenance boundaries](#preserve-cohort-and-provenance-boundaries)
+- [Use a metrics embargo for blinded work](#use-a-metrics-embargo-for-blinded-work)
+- [Classify failures before acting](#classify-failures-before-acting)
+- [Use calibrated conclusion language](#use-calibrated-conclusion-language)
+
+## Label the evidence tier
+
+Do not mix evidence tiers rhetorically or numerically:
+
+| Tier | Purpose | Permitted conclusion |
+|---|---|---|
+| Exploratory | generate hypotheses and debug evaluation | suggestive only |
+| Development or post-hoc | choose methods, endpoints, or wording | supports design decisions, not confirmation |
+| Frozen prospective | test a preregistered contrast | confirmatory within the registered scope |
+| Independent replication | repeat on fresh outer units | stronger evidence of reproducibility |
+| External or hardware validation | test a new source, site, platform, or physical system | supports the stated external scope |
+
+Call a cohort fresh only when outcomes were not inspected before the protocol, success rule, and
+analysis were fixed.
+
+## Identify the outer statistical unit
+
+Derive independence from the data-generating process:
+
+- frames and time steps within an episode are repeated measurements;
+- robots within one jointly generated trajectory are usually correlated;
+- patches, tokens, branches, and views from one sample are not new samples;
+- evaluation episodes may be inner units while training seeds are outer units;
+- subjects, sites, environments, or pretrained checkpoints may be the outer units in other fields.
+
+Use the highest-level independently rerandomized unit relevant to the claim. Aggregate or cluster
+below that level. Never inflate sample size with frames, agents, labels, or split cells.
+
+## Prefer paired designs
+
+Pair methods on shared seeds, data, initializations, episodes, and evaluation noise when possible.
+Analyze within-pair differences. Pairing removes nuisance variation and makes the sign of every
+outer-unit effect auditable.
+
+Check that pairing is genuine:
+
+- the same unit exists for both methods;
+- initialization and data order match where intended;
+- exclusions apply symmetrically;
+- no method receives extra tuning or checkpoint selection;
+- missing pairs are handled by a rule fixed before outcomes.
+
+## Choose inference that matches the design
+
+Use the simplest justified procedure:
+
+- exact sign-flip or paired permutation test for a small paired outer cohort;
+- paired bootstrap over outer units for an effect interval;
+- cluster bootstrap when episodes contain repeated lower-level observations;
+- McNemar or an exact paired binary test for matched binary outcomes;
+- hierarchical or mixed-effects modeling when several nested variance sources must be estimated;
+- noninferiority or equivalence tests only with a scientifically justified margin fixed in advance.
+
+Do not use a frame-level t-test, independently bootstrap both methods in a paired design, or treat
+multiple benchmark splits from the same trained seed as independent replications.
+
+State whether the interval and test target a mean, median, ratio, difference, or another estimand.
+If an exact test is discrete, explain that the attainable p-values are limited by the number of
+outer units.
+
+## Report a complete result
+
+For every decision-relevant contrast report:
+
+- direction and definition of the effect;
+- point estimate in interpretable units;
+- 95% confidence interval or other declared uncertainty;
+- exact or justified p-value when used;
+- favorable outer-unit count;
+- number and identity class of outer units;
+- evaluation scope and evidence tier.
+
+Include absolute performance when reporting relative change. Relative reductions can exaggerate
+small denominators and do not reveal whether either system is useful.
+
+A confidence interval that crosses the null does not support directional superiority. It also does
+not prove equality. Report the result as unresolved unless a registered equivalence or
+noninferiority analysis supports a different conclusion.
+
+Statistical significance does not establish practical importance, mechanism, external validity, or
+deployment readiness. Conversely, a scientifically important estimate with a wide interval is an
+uncertain result, not automatically a useless one.
+
+## Separate endpoint roles
+
+Declare one primary endpoint for the central claim. Label others as:
+
+- secondary outcomes;
+- mechanism or diagnostic endpoints;
+- robustness checks;
+- safety or boundary checks;
+- exploratory analyses.
+
+Do not rescue a failed primary endpoint by promoting a favorable secondary endpoint after
+inspection. When several endpoints jointly define success, specify the joint rule before
+confirmation.
+
+If a metric becomes central to the paper, retain the material evidence that qualifies it, including
+a baseline that performs better on that metric. Compressing the presentation is acceptable;
+removing the contradictory evidence is not.
+
+## Preserve cohort and provenance boundaries
+
+For prospective confirmation and release validation, retain:
+
+- registration and protocol hashes;
+- code, dependency, and data manifests;
+- seed assignments and return codes;
+- terminal artifact manifests;
+- aggregation identity and run count;
+- timestamps and failure audit trails.
+
+For development, retain the input/cohort identity, configuration, outputs, and failure record needed
+to reproduce it. For retrospective evidence, record the provenance that exists and mark gaps;
+do not demand or invent an earlier registration. For a narrow answer, cite the existing artifact.
+Use [evidence records](evidence-records.md) when several claims or source versions need tracking.
+
+Do not combine development and confirmation, old and fresh seeds, or different protocol versions
+in the primary analysis. A pooled analysis may be reported explicitly as secondary if its
+heterogeneity is visible.
+
+## Use a metrics embargo for blinded work
+
+Before the registered terminal milestone, inspect only operational state:
+
+- resource and process health;
+- return codes;
+- completion markers;
+- artifact counts and hashes.
+
+Do not read training curves, seed summaries, result JSON, scientific metrics, or selective worker
+logs if doing so would unblind the analysis. At the registered unblinding milestone, verify
+provenance and apply the frozen analysis before opening the result. Repeating the same calculation
+on the same inputs for verification is allowed. Log discrepancies and corrections; do not select
+a new endpoint, exclusion, or analysis because the first result was unfavorable. A sequential
+design may have planned interim looks and stopping rules; follow those registered rules rather
+than imposing a universal requirement that every unit finish before any analysis.
+
+## Classify failures before acting
+
+Distinguish:
+
+- **Infrastructure failure:** pod loss, storage, network, scheduler, or hardware problem.
+- **Code failure:** deterministic exception, missing dependency, corrupt artifact, or reporting bug.
+- **Protocol failure:** implementation or data no longer matches the frozen registration.
+- **Scientific negative:** valid run completes and the registered endpoint does not pass.
+
+Preserve the original return code and artifacts before remediation. Fix only infrastructure or code
+causes under a documented recovery rule. Do not replace a seed or change the scientific protocol
+to turn a negative into a success.
+
+## Use calibrated conclusion language
+
+- **Supported:** “The registered paired contrast supports X within Y.”
+- **Not supported:** “The experiment did not support directional improvement on X.”
+- **Unresolved:** “The estimate favors X, but the interval includes the null.”
+- **Mechanism-qualified:** “The crossed control is consistent with X rather than Y.”
+- **Exploratory:** “This pattern motivates a fresh confirmatory test.”
+- **Boundary:** “The result does not establish hardware, closed-loop, or out-of-domain performance.”
+
+Avoid “proves,” “universally,” “robust,” “state of the art,” or “generalizes” unless the design
+directly earns those words.
+
+</skill_file>
+
+<skill_file name="researcher/references/evidence-records.md">
+# Evidence records
+
+Use a record when several claims, sources, or versions must remain traceable. For a small answer,
+an exact inline citation is enough. Reuse an existing project table instead of creating duplicates.
+
+## Minimal record
+
+| Claim ID and exact claim | Source identity | Exact locator | Evidence tier | Finding / derivation | Verification status | Scope |
+| --- | --- | --- | --- | --- | --- | --- |
+| C1: method A lowers error on the registered cohort | `results.json`, protocol P1, run R1 | `paired.mean_difference`, `paired.ci95` | Frozen prospective | A minus B; negative is better | Verified against named aggregate | Specified cohort and endpoint only |
+
+Use stable identities: a paper DOI or versioned URL, repository revision and file, dataset version,
+run ID, or content hash when available. A filename alone is insufficient when copies can diverge.
+Locators can be page/section/table, JSON key, CSV row and column, or source line and revision.
+Do not invent locators or hashes; say which identity could actually be checked.
+
+Distinguish these statuses:
+
+- **Verified:** the named source and supporting content were inspected.
+- **Reported only:** another document states the result; its underlying evidence was not checked.
+- **Missing:** the required source or location is unavailable.
+- **Conflicting:** inspected sources disagree; retain both identities and resolve the discrepancy.
+
+These are verification states, not statistical evidence tiers. Reading an exploratory result does
+not turn it into confirmation. A stored summary does not count as newly verified evidence.
+
+## Literature and citations
+
+Read the passage that supports the attributed claim. Check title, authors, year/version, and DOI or
+URL against the primary source. Preserve whether a result is experimental, theoretical, simulated,
+or measured on hardware. Record a theorem's assumptions when they determine applicability.
+
+A search snippet, abstract, or review can identify a candidate source. If only that material was
+available, state that boundary; do not imply that the full method or result was inspected. Never
+supply a plausible-looking citation to fill a gap. In novelty searches, state the search scope and
+compare the closest counterexample rather than claiming exhaustive absence.
+
+## Numeric lineage
+
+For a derived number, retain the input locations, formula, units, direction, cohort, and rounding.
+For example, distinguish relative reduction `(baseline - method) / baseline` from an absolute
+percentage-point difference. Record denominators and missing units where they affect the result.
+Preserve the source's interval level and method. If it says only "CI", do not silently add "95%",
+bootstrap, or another convention. Keep those details unspecified until verified.
+
+When raw units and an aggregate disagree, preserve both and check code/config/cohort identity.
+Correct a reporting or calculation error transparently; do not silently choose the favorable
+version. A post-outcome change to the scientific analysis must be labeled as such.
+
+## Lightweight handoff
+
+An existing project note can hold the current objective, canonical source/protocol/run identities,
+completed checks, unresolved decisions, active job handles, remaining budget, and next action.
+For interrupted work, reconcile the note with current artifacts before retrying. Do not create
+these records for ordinary grammar edits or require unavailable retrospective registrations.
+
+</skill_file>
+
+<skill_file name="researcher/references/gpt-6-workflow.md">
+# GPT-6 research workflow
+
+Checked against official OpenAI documentation on 2026-10-05. Research-specific routing below is a
+starting policy to evaluate on the user's work. OpenAI's family prompting guidance describes
+observations from Astra and recommends evaluating its transfer to other GPT-6 models.
+
+## Model and effort selection
+
+Preserve the user's model and effective reasoning effort. This skill is instruction-only: a model
+name does not change the session or authorize API usage. When selection is requested:
+
+| Research task | Candidate | Completion evidence |
+| --- | --- | --- |
+| Bounded code change, artifact extraction, localized prose revision | `gpt-6.1-sol` | Requested diff or artifact with targeted checks |
+| Novelty synthesis, hard derivation, confounded experiment, contradictory results | `gpt-6-astra` | Source-grounded conclusion, alternatives, and a decisive contrast |
+| Broad execution with one difficult decision | Keep the current model; isolate that decision | Reusable evidence and a resolved decision without restarting completed work |
+
+For a new configuration, `medium` is a reasonable baseline; `low` can fit mechanical checks.
+Consider `high` for difficult design or interpretation and `xhigh` or `max` when the decision
+merits extra reasoning. More effort cannot supply missing data, fix leakage, or make exploratory
+results confirmatory. Preserve an existing effective setting before comparing changes.
+
+The documented API efforts for both models are `low`, `medium`, `high`, `xhigh`, and `max`.
+Neither accepts `none` or `minimal`. Codex and other hosts can expose different settings:
+use the live host's supported choices, and do not copy a host-only value into an API request.
+
+When a model comparison is requested, hold the task, tools, inputs, and acceptance criteria fixed.
+Use representative claim interpretation, a bounded patch, or a manuscript edit. Compare artifact
+correctness, unsupported claims, completion, latency, and cost where measured. Do not benchmark
+models or consume API budget just because this reference was loaded.
+
+## Give the model a decision contract
+
+Specify the requested outcome, canonical inputs, scope, execution environment, and observable
+completion condition. Include budget and stop rules for experiments. Avoid a universal research
+checklist for a single file edit or evidence lookup.
+
+Example for an artifact-grounded analysis:
+
+> Decide whether the existing paired evaluation supports the draft's central claim. Inspect the
+> named protocol, raw-unit table, and aggregate. Preserve the registered endpoint and exclusions.
+> Return the effect, uncertainty, evidence tier, and one supported claim sentence. Resolve routine
+> choices from the files; ask only if a missing scientific decision prevents a valid conclusion.
+> Do not start another run unless the user authorizes it.
+
+For an execution request, replace that last constraint with the authorized compute budget and
+expected artifact. The example does not prohibit execution already authorized by the user.
+
+## Preserve long-task state
+
+For multi-stage work, keep a compact checkpoint in the project's existing plan or run record:
+
+- objective, user corrections, authorization, and remaining acceptance criteria;
+- canonical source, protocol, cohort, run IDs, artifact paths, and verified hashes;
+- completed checks, failed approaches, and unresolved scientific decisions;
+- active tool or job handles, next safe action, and stop or resume rule.
+
+After compaction, interruption, or a model change, read that record and recheck live state where
+it can have drifted. Do not repeat completed runs or treat an old summary as new evidence. Retrieve
+only the logs, passages, and artifacts needed for the next decision, even with a large context.
+
+## Parallel work and independent review
+
+Use subagents only when the user or applicable instructions authorize delegation and the host
+provides it. Suitable tasks include independent literature branches, a statistics audit, or a
+review of a finished manuscript. A localized edit usually needs no delegation.
+
+Assign a bounded question, allowed inputs, write ownership, and output with source locations and
+uncertainties. Avoid concurrent edits to the same file or run state. For a blind review, provide
+raw artifacts and the question without the author's preferred verdict. The parent verifies
+consequential claims against sources. Model agreement is not an independent experimental
+replication and cannot replace held-out evidence.
+
+## Verification and follow-through
+
+Choose checks that can detect meaningful failures: an incorrect contrast, wrong cohort, broken
+resume path, unsupported sentence, missing citation, or clipped figure. Preserve release and
+confirmation requirements; avoid full-suite reruns for unrelated prose fixes. Finish the requested
+artifact and relevant checks, or report the concrete blocker. A plan alone does not fulfill an
+implementation request.
+
+## API workflows, only when in scope
+
+Both models require the Responses API for tool calling; Chat Completions supports requests without
+tools. Omit `temperature`, `top_p`, and log-probability options for these reasoning models.
+Preserve tool-call/result identities and supported conversation state. Use the host's existing
+compaction and pending-tool handling; implement lifecycle features only when requested. Check
+current documentation before changing a harness. API options do not define Codex settings or
+prove account availability.
+
+## Sources
+
+- [GPT-6 prompting and migration guidance](https://developers.openai.com/api/docs/guides/latest-model#prompting-best-practices)
+- [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra)
+- [GPT-6.1 Sol model](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
+
+</skill_file>
+
+<skill_file name="researcher/references/paper-writing.md">
+# Paper Writing
+
+Use this reference to turn verified evidence into a coherent, readable scientific argument.
+
+For changed claims, citations, or numbers, preserve their source and exact locator using
+[evidence records](evidence-records.md). A localized wording edit needs only the affected passage;
+the section patterns below are guidance for the corresponding section, not mandatory extra work.
+
+## Contents
+
+- [Choose one load-bearing sentence](#choose-one-load-bearing-sentence)
+- [Calibrate the title](#calibrate-the-title)
+- [Write a diagonal-readable abstract](#write-a-diagonal-readable-abstract)
+- [Make the introduction argue](#make-the-introduction-argue)
+- [Keep related work comparative](#keep-related-work-comparative)
+- [Make Methods auditable](#make-methods-auditable)
+- [Separate experimental design from results](#separate-experimental-design-from-results)
+- [Report negative results with proportional weight](#report-negative-results-with-proportional-weight)
+- [Write Discussion as scientific reasoning](#write-discussion-as-scientific-reasoning)
+- [Keep Limitations compact and material](#keep-limitations-compact-and-material)
+- [Let the conclusion close the argument](#let-the-conclusion-close-the-argument)
+- [Design figures and tables around reader decisions](#design-figures-and-tables-around-reader-decisions)
+- [Make the prose sound authored](#make-the-prose-sound-authored)
+- [Perform an independent manuscript review](#perform-an-independent-manuscript-review)
+
+## Choose one load-bearing sentence
+
+Write one sentence containing the problem, mechanism, decisive result, and scope. Every major
+section should help the reader understand or trust that sentence. Results that do not change the
+central conclusion belong in a compact table, appendix, or may be omitted if they are not material.
+
+Do not organize the paper as a chronological lab notebook. Order it by argumentative value:
+
+1. why the problem matters;
+2. why existing approaches leave a precise gap;
+3. the proposed idea and its causal prediction;
+4. the decisive comparison;
+5. controls that remove alternative explanations;
+6. scope, limitations, and implications.
+
+## Calibrate the title
+
+Make the title specific enough to select the right audience and narrow enough to survive the
+weakest material result. Prefer the capability and setting over a string of fashionable nouns.
+
+Do not put “robust,” “general,” “real-world,” “label-efficient,” or “decentralized” in the title
+unless the paper directly evaluates the relevant dimensions. The title may foreground the
+strongest contribution, but it must not outrun the evidence.
+
+## Write a diagonal-readable abstract
+
+Default to five moves:
+
+1. the concrete problem and constraint;
+2. the missing capability or question;
+3. the method and what makes it different;
+4. the strongest confirmatory result;
+5. the scope and implication.
+
+Use one to three decision-changing numbers by default. Move detailed split values, confidence
+intervals, and secondary endpoints to Results or a table. Put the closed-loop or deployment
+relevance early when that is the actual robotics contribution.
+
+Avoid opening with a generic field truism. Avoid a wall of metrics. State a causal or falsifiable
+idea, not only a list of components.
+
+## Make the introduction argue
+
+Use a premise–tension–proposal–test structure:
+
+- establish the operational need;
+- explain why the constraint makes the problem nontrivial;
+- identify the nearest existing solution and its missing assumption;
+- introduce the proposed mechanism as a response;
+- state what result would distinguish it from the alternative explanation;
+- summarize contributions in evidence order.
+
+Contributions should be claims already supported by the paper, not a table of contents. Do not call
+standard implementation work a contribution merely to reach three bullets.
+
+## Keep related work comparative
+
+Organize by the scientific alternatives that matter to the claim. For each group explain:
+
+- what information and target it uses;
+- which deployment assumptions differ;
+- what evidence it provides;
+- why the remaining gap is material.
+
+Avoid citation catalogs and novelty-by-omission. Cite direct counterexamples and narrow the claim
+when necessary. Use current primary sources and preserve exact attribution.
+
+## Make Methods auditable
+
+Methods should let a skeptical reader reconstruct:
+
+- inputs available at training and deployment;
+- target construction and stop-gradient paths;
+- architecture and parameter matching;
+- losses and every nonzero weight;
+- communication, action, and centralization assumptions;
+- data splits, selection, and evaluation unit;
+- what exists only during training.
+
+Separate conceptual equations from implementation details, but do not hide a privileged input or
+training-only component in prose. Name the actual paper output, not an easier diagnostic proxy.
+
+## Separate experimental design from results
+
+In Experimental Setup state the hypothesis, primary endpoint, statistical unit, matched baseline,
+controls, cohorts, and success rule before presenting outcomes.
+
+In Results lead each subsection with a claim-sized conclusion, then provide evidence, then explain
+which alternative interpretation it removes. A useful paragraph rhythm is:
+
+1. question;
+2. comparison;
+3. decisive result;
+4. interpretation;
+5. boundary.
+
+Tables should carry dense numbers. Prose should carry meaning. Repeat only values required to
+follow the argument.
+
+## Report negative results with proportional weight
+
+Do not hide a material negative, especially when it qualifies a headline metric or mechanism. Also
+do not repeat secondary negatives until they become the paper's main story.
+
+Use this hierarchy:
+
+- state the registered negative or null once in Results;
+- keep exact material evidence in a table or concise sentence;
+- explain a genuine applicability boundary once in Limitations;
+- exclude secondary negatives from Abstract and Conclusion unless they alter the central claim.
+
+If a stronger comparator wins on a metric that the paper foregrounds, retain that trade-off even
+when the proposed method wins the primary endpoint. A concise honest formulation is stronger than
+deleting the comparison.
+
+## Write Discussion as scientific reasoning
+
+Discussion should answer:
+
+- why the observed pattern is plausible;
+- which control changed the causal interpretation;
+- what the method appears to trade off;
+- where the result should and should not transfer;
+- what experiment would most change confidence.
+
+Do not merely restate every number. Distinguish explanation from speculation with calibrated
+language: “supports,” “is consistent with,” “suggests,” and “does not establish.”
+
+## Keep Limitations compact and material
+
+Include boundaries that could change a reader's decision:
+
+- simulation-only or single-platform evidence;
+- limited outer-unit count;
+- missing external baseline;
+- unresolved shift, subgroup, or downstream outcome;
+- reliance on privileged training information;
+- compute, latency, communication, or safety constraints.
+
+Do not use Limitations as a second negative-results section. State each boundary once and connect it
+to the next decisive experiment.
+
+## Let the conclusion close the argument
+
+Restate the confirmed contribution, why it matters, and the scope. Do not introduce new metrics,
+future claims, or promotional superlatives. A conclusion should leave the reader with one accurate
+sentence they can repeat.
+
+## Design figures and tables around reader decisions
+
+Every figure should answer one question:
+
+- system diagram: what information flows at training and deployment;
+- main result: whether the primary contrast passes;
+- learning curve: how label efficiency changes across budgets;
+- mechanism control: whether the suspected factor explains the effect;
+- robustness plot: where the result persists or fails.
+
+Use absolute axes, visible uncertainty, legible print-size text, and captions that state the unit,
+direction, cohort, and key conclusion. Replace decorative illustrations when a result visualization
+would resolve a likely reviewer objection.
+
+## Make the prose sound authored
+
+Prefer concrete subjects and verbs. Vary paragraph openings and sentence length. Use transitions
+that express reasoning: “because,” “however,” “therefore,” “to distinguish these explanations,” and
+“this matters when.”
+
+Remove:
+
+- generic enthusiasm and inflated adjectives;
+- repetitive “we propose / we show / we demonstrate” chains;
+- excessive parenthetical caveats;
+- undefined acronyms and noun stacks;
+- metric walls without interpretation;
+- formulaic summaries at the end of every subsection.
+
+Good scientific prose is not casual; it makes the chain of reasoning visible.
+
+## Perform an independent manuscript review
+
+When asked to review only the PDF, inspect only the PDF and judge the visible artifact. Do not use
+hidden source, repository history, or remembered explanations to excuse what a reviewer cannot see.
+
+Lead with a verdict, then evaluate:
+
+1. novelty and importance;
+2. technical correctness;
+3. whether the experiment isolates the claimed mechanism;
+4. statistical validity and evidence tier;
+5. absolute and comparative performance;
+6. external validity and robotics relevance;
+7. reproducibility;
+8. clarity, figures, and venue fit.
+
+Separate fatal issues, likely reviewer objections, high-value fixes, and optional polish. Attach
+each criticism to a page, table, figure, equation, or quoted claim.
+
+</skill_file>
+
+<skill_file name="researcher/references/research-design.md">
+# Research Design
+
+Use this reference to turn a broad idea into a falsifiable, defensible contribution.
+
+## Contents
+
+- [Start from the scientific question](#start-from-the-scientific-question)
+- [Match evidence to the claim type](#match-evidence-to-the-claim-type)
+- [Audit novelty by function](#audit-novelty-by-function)
+- [Build a claim-evidence matrix](#build-a-claim-evidence-matrix)
+- [Design matched comparisons](#design-matched-comparisons)
+- [Choose controls that remove alternative explanations](#choose-controls-that-remove-alternative-explanations)
+- [Freeze the confirmatory protocol](#freeze-the-confirmatory-protocol)
+- [Test the claim at the correct level](#test-the-claim-at-the-correct-level)
+- [Select work by expected information gain](#select-work-by-expected-information-gain)
+
+## Start from the scientific question
+
+Write the problem in four layers:
+
+1. **Observation:** what information is available to the method at training and deployment?
+2. **Mechanism:** what representation, objective, architecture, or interaction is proposed?
+3. **Outcome:** what measurable behavior should change because of that mechanism?
+4. **Scope:** on which population, benchmark, environment, and deployment regime should it hold?
+
+Do not begin with a method name and search for a problem. State the failure mode or missing
+capability first, then ask whether the proposed mechanism is the shortest credible way to address
+it.
+
+## Match evidence to the claim type
+
+Choose the types of claim the work actually makes:
+
+1. **Existence:** the system can be trained or made to work.
+2. **Comparative:** it outperforms a matched alternative on a registered endpoint.
+3. **Mechanistic:** the improvement is caused by the proposed factor.
+4. **Transfer:** it persists under a specified distribution shift.
+5. **Downstream:** it improves a task or closed-loop outcome.
+6. **Deployment:** it works under real operational constraints.
+
+These are distinct evidence requirements, not ordered stages. A scoped downstream result can be
+supported without a transfer or mechanistic claim. A lower representation loss does not establish
+downstream control, and simulation does not establish hardware performance. Test the requested
+claim directly and state only the material boundaries of its scope. Adapt this menu for theoretical,
+observational, or qualitative work instead of forcing every contribution into an ML benchmark.
+
+## Audit novelty by function
+
+Search current primary literature and official project artifacts using several descriptions of the
+function, not only the proposed acronym. Include:
+
+- the task and deployment setting;
+- observation and target modalities;
+- self-supervision or supervision;
+- action conditioning and temporal horizon;
+- communication and centralization assumptions;
+- architecture and bottleneck;
+- evaluation benchmark and statistical unit;
+- hardware, simulation, or external-validation evidence.
+
+Build a nearest-neighbor matrix with one row per relevant work and these columns:
+
+| Work | Observation | Prediction target | Training signal | Deployment information | Main evaluation | Claim overlap |
+|---|---|---|---|---|---|---|
+
+End the audit with:
+
+- **Occupied:** the strongest claim already demonstrated by prior work.
+- **Differentiator:** the narrow, material difference in the proposed work.
+- **Missing evidence:** the experiment needed to establish that difference.
+
+Local repository absence, an empty exact-keyword search, or a new combination of familiar
+components is not sufficient evidence of novelty. Avoid “first” unless the search is unusually
+complete and the claim is precisely bounded.
+
+## Build a claim-evidence matrix
+
+For a new experiment or a material change to the paper's claims, fill one row per intended claim.
+Reuse an existing record; a localized wording change needs only the affected claim and source:
+
+| Claim | Comparator | Endpoint / success rule | Outer unit | Required control | Evidence tier | Source and locator | Scope |
+|---|---|---|---|---|---|---|---|
+
+Each empirical headline claim needs a decisive endpoint or a predeclared joint rule. For a theorem,
+state the proposition and assumptions instead. Avoid selecting favorable metrics after inspection.
+Use [evidence records](evidence-records.md) for exact source identity and verification status.
+
+## Design matched comparisons
+
+Hold constant everything not under test:
+
+- data, splits, preprocessing, augmentations, and labels;
+- initialization, training budget, optimizer, and selection rule;
+- model width, bottleneck, effective capacity, and deployment interface;
+- inference inputs, communication budget, controller, and evaluation episodes.
+
+Parameter count alone is not matching. Also compare information access, training-only heads,
+pretrained sources, tuning budget, and the opportunity to select a favorable checkpoint.
+
+Use a strong external baseline when making a field-level superiority claim. An internal ablation
+can identify a mechanism but usually cannot establish competitiveness.
+
+## Choose controls that remove alternative explanations
+
+Prefer a small crossed or factorial design over many decorative ablations. Useful controls include:
+
+- same architecture with a different objective;
+- same objective with a different encoder or pretraining source;
+- removal of an input shortcut or privileged variable;
+- matched-capacity reconstruction or predictive baseline;
+- randomization of coordinate frame, ordering, or nuisance features;
+- frozen versus independently trained upstream checkpoints;
+- downstream evaluation with the representation held fixed.
+
+State in advance what each result pattern would imply. An interaction is often more informative
+than two isolated wins because it tests whether the effect depends on the suspected mechanism.
+
+## Freeze the confirmatory protocol
+
+Before seeing confirmatory outcomes, record:
+
+- exact code and data identities;
+- seeds and assignment to compute;
+- primary and secondary endpoints;
+- exclusions and failure handling;
+- thresholds and direction of success;
+- baseline selection and hyperparameter grids;
+- statistical unit and inference procedure;
+- aggregation command and when metrics may be opened.
+
+Separate exploratory tuning, development evaluation, independent confirmation, and external
+validation. Reuse of a frozen protocol is valuable; reuse of inspected data as if it were sealed is
+not.
+
+Do not substitute a failed seed, tune after partial outcomes, or pool old and new cohorts without
+labeling the pooled analysis secondary.
+
+## Test the claim at the correct level
+
+- Evaluate prediction or representation claims with absolute quality and matched comparisons.
+- Evaluate label efficiency with full learning curves or predeclared low-label summaries.
+- Evaluate robustness across independently meaningful shifts, not just more corruptions.
+- Evaluate control claims in closed loop with task-level outcomes.
+- Evaluate decentralization with actual information-flow and communication constraints.
+- Evaluate deployment claims on hardware or state clearly that evidence is simulation-only.
+
+Use the cited field's experimental conventions as a starting point, but do not imply sim-to-real
+transfer from visual realism or physics alone.
+
+## Select work by expected information gain
+
+Prioritize the experiment that most cleanly separates competing explanations. A useful ranking is:
+
+1. fatal validity check;
+2. matched baseline or leakage control;
+3. independent confirmation of the load-bearing result;
+4. mechanism-isolating factorial control;
+5. external or downstream validation;
+6. optional breadth and polish.
+
+Stop or reframe when direct prior work occupies the claim, the matched comparison reverses it, the
+registered interval includes the null for a directional claim, or the intended deployment regime
+was never evaluated. A narrower result with clear causal isolation is usually stronger than a
+broad collection of favorable metrics.
+
+</skill_file>
+
+<skill_file name="researcher/references/submission-audit.md">
+# Submission Audit
+
+Use this reference when creating, updating, packaging, or independently checking a paper artifact.
+
+Scale the audit to the requested deliverable. A local correction needs a build when applicable and
+inspection of affected content and pages; include any pagination or reference changes it causes.
+Use the full checklist for submission readiness, a release package, or a broad layout change.
+Do not rebuild archives or repeat passed checks unless the artifact changed or a finding warrants it.
+
+## Contents
+
+- [Identify the canonical variant](#identify-the-canonical-variant)
+- [Build from a clean environment](#build-from-a-clean-environment)
+- [Audit the PDF itself](#audit-the-pdf-itself)
+- [Audit anonymity and identity](#audit-anonymity-and-identity)
+- [Audit the source archive](#audit-the-source-archive)
+- [Verify propagation and destination state](#verify-propagation-and-destination-state)
+- [Recheck venue-specific rules](#recheck-venue-specific-rules)
+- [Suggested lightweight checks](#suggested-lightweight-checks)
+- [Handoff checklist](#handoff-checklist)
+
+## Identify the canonical variant
+
+Keep these variants separate:
+
+- anonymous conference submission;
+- author-identified preprint;
+- camera-ready or accepted manuscript;
+- public reproducibility package;
+- internal development draft.
+
+Resolve the exact target from the request and existing context before editing or copying. Ask only
+if a material ambiguity remains. Never update a submitted or public artifact when the user
+authorized only a new working version.
+
+Record the canonical source directory, PDF name, archive name, page limit, anonymity state, and
+required acknowledgment or author block. Treat every copy as a distinct artifact until byte or hash
+identity is verified.
+
+## Build from a clean environment
+
+Use the workspace's authorized execution environment and obey its local/remote restrictions.
+Compile from a clean extraction or clean auxiliary state so stale files cannot mask missing
+dependencies.
+
+Check the full build transcript for:
+
+- errors and undefined control sequences;
+- missing figures, bibliography, fonts, or style files;
+- unresolved citations and references;
+- multiply defined labels;
+- overfull boxes and clipped content;
+- nonportable shell escape or absolute paths.
+
+A successful exit code is necessary but not sufficient.
+
+## Audit the PDF itself
+
+Verify:
+
+- page size and page count;
+- required margins on every page based on visible ink, not only text boxes;
+- no clipped equations, captions, tables, headers, or figures;
+- embedded fonts and absence of prohibited bitmap or Type 3 fonts;
+- readable figures at print scale;
+- selectable text and sensible extraction order;
+- correct metadata, title, authors, and anonymity;
+- consistent references, numbering, and hyperlinks;
+- no comments, hidden annotations, tracked changes, or accidental file paths;
+- no bad characters introduced by copy/paste into submission fields.
+
+Render every page to an image and inspect it visually. Automated margin overlays can include the
+page's background or annotations; confirm the actual offending ink before changing layout.
+
+For margin repairs, prefer local changes to the offending figure, table, equation, or caption.
+Avoid global font or margin reductions that weaken the whole document or violate the template.
+
+## Audit anonymity and identity
+
+For anonymous submission, search extracted text and PDF metadata for:
+
+- author names and affiliations;
+- email addresses and personal URLs;
+- acknowledgments, grants, institutions, and laboratories;
+- repository or dataset links that reveal identity;
+- embedded document author and creator fields.
+
+For an author-identified version, verify that the title page, author order, affiliations,
+acknowledgment wording, and contact information are present and exact. Do not accidentally ship the
+anonymous PDF inside an author archive or vice versa.
+
+## Audit the source archive
+
+Include only files needed for a clean build:
+
+- manuscript source;
+- bibliography and style/class files allowed by the venue;
+- figures and tables;
+- small generated data files required by the source;
+- explicit build instructions only when permitted.
+
+Exclude auxiliary files, caches, temporary renders, editor state, system metadata, credentials,
+logs with private paths, and unrelated drafts.
+
+Then:
+
+1. list the archive contents;
+2. extract it into a fresh temporary directory;
+3. rebuild using only the archive;
+4. compare page count and extracted text with the canonical PDF;
+5. visually sample or compare every rendered page;
+6. compute and record checksums for the PDF and archive.
+
+Do not call an archive updated merely because a new file was created. Verify that it contains the
+intended source and reproduces the intended PDF.
+
+## Verify propagation and destination state
+
+For each delivery step, check the destination:
+
+- local canonical PDF equals the newly built PDF;
+- archive contains the canonical source and figures;
+- uploaded submission preview preserves layout and characters;
+- public repository or release points to the intended commit and artifacts;
+- checksums and filenames match the handoff note.
+
+Do not infer success from a copy, upload, push, or API response alone. Re-open, re-download, query,
+or hash the destination where possible.
+
+## Recheck venue-specific rules
+
+Rules change. Verify current official requirements for:
+
+- page and file-size limits;
+- paper size and margins;
+- font and PDF version constraints;
+- anonymity and supplementary-material policy;
+- acknowledgments and generative-AI disclosure;
+- hyperlinks, videos, appendices, and external repositories;
+- keyword taxonomy and submission-field character restrictions.
+
+Use the official venue source rather than a remembered prior-year rule. When the submission system
+offers a controlled vocabulary or preview, treat it as the final source of truth.
+
+## Suggested lightweight checks
+
+Use equivalent tools available in the authorized environment:
+
+- PDF metadata and geometry inspection;
+- font inventory;
+- text extraction and targeted search;
+- page rendering;
+- bounding-box or ink-bound analysis;
+- archive listing and clean extraction;
+- checksums and byte comparison.
+
+Tool output does not replace visual review. If the workspace forbids local project execution,
+perform compilation and project scripts remotely while keeping local activity to file inspection,
+editing, and permitted transfer commands.
+
+## Handoff checklist
+
+Report:
+
+- exact canonical PDF and source/archive paths;
+- variant and anonymity state;
+- page count and format;
+- build and visual-audit result;
+- font, metadata, reference, and margin result;
+- archive clean-rebuild result;
+- checksums;
+- any unresolved warning that could affect submission.
+
+Use “verified” only for checks actually performed.
+
+</skill_file>
+Response schema:
+{"type": "object", "additionalProperties": false, "required": ["case_id", "verdict", "answer", "evidence", "effect", "outer_n", "needs_user_input", "run_new_experiment", "deliverable"], "properties": {"case_id": {"type": "string"}, "verdict": {"type": "string", "enum": ["supported", "not_supported", "unresolved", "open", "exploratory", "blocked", "not_applicable"], "description": "Apply this shared status vocabulary in both arms: supported = the supplied evidence supports the scoped claim/action; not_supported = contradicted by evidence or a completed directional result against the claim; unresolved = a valid comparison was conducted but uncertainty prevents a directional decision; open = required evidence is missing or unavailable; exploratory = a post-hoc result without prospective confirmation; blocked = completing the requested action requires unavailable access or authorization; not_applicable = no scientific claim/action is being assessed. Missing evidence takes open, not not_supported; an interval spanning the null takes unresolved."}, "answer": {"type": "string"}, "evidence": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["source_id", "locator"], "properties": {"source_id": {"type": "string"}, "locator": {"type": "string"}}}}, "effect": {"type": ["number", "null"]}, "outer_n": {"type": ["integer", "null"]}, "needs_user_input": {"type": "boolean"}, "run_new_experiment": {"type": "boolean"}, "deliverable": {"type": "string"}}}
+Tasks:
+[{"id": "null-difference", "prompt": "Does the registered difference support directional superiority? Report the effect and independent-unit count.", "sources": [{"source_id": "R1", "locator": "table 1", "text": "Synthetic prospective paired evaluation: 12 independent training seeds, 100 episodes per seed. Method minus baseline success rate: +2 percentage points; registered 95% CI [-1,+5]. No equivalence margin."}]}, {"id": "ratio-null", "prompt": "Does this result establish a reduction? Report the ratio as effect.", "sources": [{"source_id": "R2", "locator": "table 1", "text": "Synthetic prospective evaluation: 20 independent subjects. Treatment/control error ratio 1.04; registered 95% CI [0.97,1.12]. Lower is better."}]}, {"id": "outer-unit", "prompt": "Is the stated sample size of 3000 independent training replications defensible? Report the true independent training count; no effect estimate is available.", "sources": [{"source_id": "R3", "locator": "design", "text": "Three independently trained seeds. Each seed is evaluated on 1000 episodes. Draft claims n=3000 independent training replications."}]}, {"id": "post-hoc", "prompt": "Classify the positive result claimed as prospective confirmation. Report the selected effect and independent-unit count.", "sources": [{"source_id": "R4", "locator": "analysis history", "text": "After inspecting eight independent seed results, the author selected the best of 20 endpoints. The selected gain is 7 percentage points. This endpoint was not registered before inspection."}]}, {"id": "missing-evidence", "prompt": "Can you verify the reported improvement from the available source? Answer only; do not ask for files or launch work.", "sources": [{"source_id": "status", "locator": "paragraph 1", "text": "A progress note says final error improved by 18%, but provides no result file, interval, sample count, or run ID. The underlying evaluation is unavailable."}]}, {"id": "novelty-counterexample", "prompt": "Assess the broad claim: first action-conditioned latent robot dynamics method. Do not browse; use only this supplied fictional corpus.", "sources": [{"source_id": "prior-A", "locator": "section 3", "text": "Learns action-conditioned latent dynamics for one robot in simulation."}, {"source_id": "proposal", "locator": "section 2", "text": "Claims the first action-conditioned latent robot dynamics method. Its distinct feature is an encoder shared across three morphologies, evaluated only in simulation."}]}, {"id": "downstream-scope", "prompt": "Can the paper claim lower closed-loop error on this benchmark without first proving transfer or the internal mechanism? No additional experiment is requested.", "sources": [{"source_id": "R5", "locator": "table 2", "text": "Registered matched closed-loop simulation evaluation on 16 independent paired seeds. Final-error relative reduction 12%, 95% CI [4%,19%]. No shift, hardware, or mechanism experiment."}]}, {"id": "repeat-aggregation", "prompt": "Is repeating this aggregation for reproducibility allowed? Classify support for that action, not for a new scientific claim. No new experiment should be run.", "sources": [{"source_id": "protocol", "locator": "analysis", "text": "Frozen inputs, exclusions, endpoint, and aggregation code are unchanged. The terminal result has already been opened. A reviewer requests a second execution of the identical calculation to verify the table."}]}, {"id": "abstract-only", "prompt": "Rewrite only this abstract in deliverable, using the supplied evidence: Our robot controller generalizes universally. It improves everything through a novel latent model. Include the verified effect and outer-unit count in the structured fields.", "sources": [{"source_id": "evaluation", "locator": "table 2", "text": "16 paired simulation seeds on one benchmark; final position error is reduced by 12% relative to a matched baseline, reported CI [4%,19%]. No shift or hardware experiment."}]}, {"id": "pdf-only", "prompt": "Review only the visible paper excerpt. Does it establish superiority over a matched baseline? Do not use the unprovided repository or author explanations.", "sources": [{"source_id": "paper", "locator": "page 4, table 1", "text": "Visible PDF excerpt: our method has a mean success rate of 78%. No comparator, uncertainty, or independent-unit count appears in the provided artifact."}]}, {"id": "resume-negative", "prompt": "Continue the interrupted task: report the completed registered result. Should another experiment run? Report the effect and outer-unit count.", "sources": [{"source_id": "handoff", "locator": "state", "text": "Task: report the primary endpoint. All ten independent paired seeds completed; checksums verified. No retry is pending; no extra compute was authorized."}, {"source_id": "aggregate", "locator": "primary", "text": "Registered success-rate difference is -2 percentage points, 95% CI [-4,-0.5]. Higher is better; primary superiority criterion failed."}]}, {"id": "ordinary-edit", "prompt": "Correct only the grammar in deliverable: The results is saved. This is a wording task, with no scientific claim to assess.", "sources": []}]
