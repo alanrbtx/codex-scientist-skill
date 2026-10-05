@@ -57,9 +57,13 @@ Default to five moves:
 4. the strongest confirmatory result;
 5. the scope and implication.
 
-Use one to three decision-changing numbers by default. Move detailed split values, confidence
-intervals, and secondary endpoints to Results or a table. Put the closed-loop or deployment
-relevance early when that is the actual robotics contribution.
+Use one to three decision-changing numbers by default. Do not include confidence intervals
+(CIs) in the abstract; report them in Results or tables, unless the user or an applicable venue
+format explicitly requires them in the abstract. Keep the key effect and its scope in the abstract.
+Describe inconclusive outcomes accurately in words; omitting interval bounds must not turn an
+uncertain result into a claim of improvement. Move detailed split values and secondary endpoints
+to Results or a table. Put the closed-loop or deployment relevance early when that is the actual
+robotics contribution.
 
 Avoid opening with a generic field truism. Avoid a wall of metrics. State a causal or falsifiable
 idea, not only a list of components.

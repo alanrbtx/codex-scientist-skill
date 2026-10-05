@@ -15,7 +15,7 @@ reduces final position error by 12% relative to a matched baseline; the reported
 ## Expected response
 
 “Our robot controller reduces final position error by 12% relative to a matched baseline on one
-simulation benchmark across 16 paired seeds (reported interval: 4–19%). This result supports
+simulation benchmark across 16 paired seeds. This result supports
 improved control within the evaluated simulation setting.”
 
 Evidence: `evaluation`, table 2. The edit removes unsupported universal generalization without
@@ -24,4 +24,5 @@ turning a localized rewrite into a research plan.
 ## Why
 
 The abstract leads with the supported result, keeps its units and scope, and does not introduce
-extra claims or require a new experiment before completing the requested edit.
+extra claims or require a new experiment before completing the requested edit. The confidence
+interval remains in the supporting result for Results or a table, not in the abstract.

@@ -221,7 +221,7 @@
         ],
         "deliverable_required": true
       },
-      "manual_rubric": "Return a concise replacement abstract; no universal claim, extra plan, or invented causal evidence.",
+      "manual_rubric": "Return a concise replacement abstract; no universal claim, extra plan, or invented causal evidence. Keep confidence intervals out of the replacement abstract; preserve the key effect and scope.",
       "should_trigger": true
     },
     {

@@ -42,13 +42,13 @@ Ask Codex to install the `researcher` subdirectory with its skill installer:
 
 ```text
 Use $skill-installer to install the researcher skill from
-https://github.com/alanrbtx/codex-scientist-skill/tree/v0.2.1/researcher
+https://github.com/alanrbtx/codex-scientist-skill/tree/v0.2.2/researcher
 ```
 
 Use `tree/main/researcher` instead for the latest development revision. For a manual installation:
 
 ```sh
-git clone --branch v0.2.1 https://github.com/alanrbtx/codex-scientist-skill.git
+git clone --branch v0.2.2 https://github.com/alanrbtx/codex-scientist-skill.git
 mkdir -p "$HOME/.agents/skills"
 ln -s "$PWD/codex-scientist-skill/researcher" "$HOME/.agents/skills/researcher"
 ```

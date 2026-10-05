@@ -86,3 +86,6 @@ See [OpenAI's skill evaluation guidance](https://developers.openai.com/blog/eval
 
 See [the v0.2.0 evaluation report](results/v0.2.0/README.md), including the initial pilot,
 changes made after manual inspection, fresh comparison, and sanitized model responses.
+
+The v0.2.0 report is a historical snapshot. Its responses and scores are unchanged; later editorial
+updates, including the no-CI abstract rule, require a fresh run before claiming current compliance.
