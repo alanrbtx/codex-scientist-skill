@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Explicit, bounded Codex CLI evals. Not run by ordinary CI or skill invocation."""
+"""Explicit, bounded Codex CLI evals. Not run by ordinary skill invocation."""
 import argparse
 import hashlib
 import json

@@ -78,8 +78,6 @@ def validate(root=ROOT):
             errors.extend(markdown_links(file, root))
         for finding in private_findings(content):
             errors.append(f'{file.relative_to(root)}: {finding}')
-    for file in (root / '.github/workflows').glob('*.yml'):
-        yaml.safe_load(file.read_text())
     load_cases(root / 'evals/cases.json')
     json.loads((root / 'evals/response.schema.json').read_text())
     tracked = subprocess.check_output(['git', '-C', str(root), 'ls-files'], text=True).splitlines()

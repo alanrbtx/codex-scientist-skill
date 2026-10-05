@@ -42,13 +42,13 @@ Ask Codex to install the `researcher` subdirectory with its skill installer:
 
 ```text
 Use $skill-installer to install the researcher skill from
-https://github.com/alanrbtx/codex-scientist-skill/tree/v0.2.0/researcher
+https://github.com/alanrbtx/codex-scientist-skill/tree/v0.2.1/researcher
 ```
 
 Use `tree/main/researcher` instead for the latest development revision. For a manual installation:
 
 ```sh
-git clone --branch v0.2.0 https://github.com/alanrbtx/codex-scientist-skill.git
+git clone --branch v0.2.1 https://github.com/alanrbtx/codex-scientist-skill.git
 mkdir -p "$HOME/.agents/skills"
 ln -s "$PWD/codex-scientist-skill/researcher" "$HOME/.agents/skills/researcher"
 ```
@@ -97,7 +97,6 @@ examples/                           # Three complete synthetic examples
 evals/                              # 12 decision fixtures, schema, published results
 scripts/                            # Offline validators and opt-in model runner
 tests/                              # Grader and validation regression checks
-.github/workflows/validate.yml       # Offline CI
 VERSION                             # Release version
 ```
 
@@ -117,7 +116,7 @@ python3 -m unittest discover -s tests -v
 git diff --check
 ```
 
-CI checks skill metadata, local Markdown links, common private-data patterns, fixture structure,
+Local validation checks skill metadata, local Markdown links, common private-data patterns, fixture structure,
 and grader regressions. Model calls are separate and require an explicit `--execute` flag and
 bounded run settings. See [evaluation instructions](evals/README.md) and the
 [v0.2.0 report](evals/results/v0.2.0/README.md) for methods, actual responses, failures, and limits.
@@ -132,8 +131,8 @@ publish only sanitized synthetic results.
 
 Put core decisions in `SKILL.md` and details in directly linked references. Add a targeted fixture
 when fixing a behavioral failure. Review generated prose as well as structured scores. Before a
-release, pass offline checks, update `VERSION`, and tag the verified commit as `v<VERSION>`; CI
-checks that a release tag matches the version file.
+release, pass offline checks, update `VERSION`, and tag the verified commit as `v<VERSION>`.
+Check that the release tag matches the version file before publishing.
 
 ## License
 

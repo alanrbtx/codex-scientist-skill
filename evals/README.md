@@ -28,7 +28,7 @@ python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 ```
 
-These require no model credentials and run in CI. Test responses constructed from expectations
+These require no model credentials and run locally. Test responses constructed from expectations
 validate the grader only; they are not model results.
 
 ## Bounded live comparison
@@ -52,7 +52,7 @@ corpus. It ignores user configuration while retaining the existing Codex login. 
 traces locally, flags unexpected completed tool items, and stops at the first backend/isolation/
 output error without retrying or substituting a model. Host-enforced policy still applies. Inspect
 traces before assuming isolation in a different CLI version. Do not run the suite against private
-research artifacts. Ordinary CI and skill use never invoke the model runner.
+research artifacts. Ordinary skill use never invokes the model runner.
 
 Report the model, effort, skill/corpus/prompt hashes, backend, trials, failed checks, and manual
 review separately. Token usage and latency are recorded when returned by the CLI; pricing is not
