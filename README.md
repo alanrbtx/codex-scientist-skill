@@ -41,11 +41,28 @@ codex-scientist-skill/
         ├── research-design.md
         ├── evidence-and-statistics.md
         ├── paper-writing.md
-        └── submission-audit.md
+        ├── submission-audit.md
+        └── gpt-6-workflow.md
 ```
 
-`SKILL.md` contains the core workflow. The four references are loaded only when relevant, keeping
+`SKILL.md` contains the core workflow. The references are loaded only when relevant, keeping
 the initial context compact.
+
+## GPT-6 Astra and GPT-6.1 Sol
+
+The workflow includes guidance for `gpt-6-astra` and `gpt-6.1-sol`, checked against official OpenAI
+documentation on 2026-10-05. It preserves the user's selected model and existing authorization.
+When model selection is requested, Sol is a candidate for bounded implementation and editing;
+Astra is a candidate for difficult scientific synthesis and conflicting evidence. Evaluate this
+routing on the actual research tasks rather than assuming a universal winner.
+
+The update emphasizes completion of authorized work, scoped verification, explicit handling of
+conflicting instructions, recoverable long-task state, and bounded delegation when authorized.
+Scientific evidence standards and execution restrictions remain independent of model choice.
+
+See [the GPT-6 workflow reference](researcher/references/gpt-6-workflow.md) for reasoning-effort
+guidance, API/host distinctions, and official sources. This is instruction guidance, not a model
+switch, API client, or claim of measured research-quality improvement.
 
 ## Installation
 
@@ -55,17 +72,15 @@ Ask Codex to install the `researcher` subdirectory from this repository:
 
 ```text
 Use $skill-installer to install the researcher skill from
-https://github.com/<your-account>/codex-scientist-skill/tree/main/researcher
+https://github.com/alanrbtx/codex-scientist-skill/tree/main/researcher
 ```
-
-Replace `<your-account>` with the repository owner's GitHub account after publication.
 
 ### Manual user installation
 
 Codex loads personal skills from `$HOME/.agents/skills`:
 
 ```bash
-git clone https://github.com/<your-account>/codex-scientist-skill.git "$HOME/codex-scientist-skill"
+git clone https://github.com/alanrbtx/codex-scientist-skill.git "$HOME/codex-scientist-skill"
 mkdir -p "$HOME/.agents/skills"
 ln -s "$HOME/codex-scientist-skill/researcher" "$HOME/.agents/skills/researcher"
 ```

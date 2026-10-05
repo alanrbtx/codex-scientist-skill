@@ -10,6 +10,42 @@ then build a clear paper around that claim. Act as a skeptical coauthor: improve
 better controls, inference, hierarchy, and prose rather than through inflated language or selective
 reporting.
 
+## Work with GPT-6 Astra and GPT-6.1 Sol
+
+Keep the user's selected model. When model selection is requested, prefer `gpt-6.1-sol` for
+well-specified implementation, artifact inspection, and manuscript edits; consider `gpt-6-astra`
+for difficult scientific synthesis, ambiguous causal contrasts, or conflicting evidence. These
+are workflow recommendations, not proof that either model is better on a particular project.
+Do not silently switch models, rewrite host settings, or require a second model for completion.
+Read [references/gpt-6-workflow.md](references/gpt-6-workflow.md) when choosing reasoning effort,
+preparing a long research task, delegating a bounded review, or maintaining API-backed workflows.
+
+Carry authorized work through the requested artifact and its relevant verification. Resolve
+routine choices from existing context; ask only when missing information materially changes the
+scientific question, resource budget, execution permission, or final artifact. Continue independent
+work while an answer is pending. A status question or correction during a run updates the active
+task; it does not cancel the original objective unless the user says so.
+
+User instructions take precedence over this skill's workflow defaults. Distinguish a scientific
+validity requirement from an optional process preference. If an instruction actually blocks work,
+identify its source and exact requirement; do not invent an approval gate. A negative finding
+stops promotion of the claim, not completion of the authorized analysis or report.
+
+## Scale effort to the request
+
+Use the smallest workflow that resolves the user's actual decision:
+
+- For a direct explanation or narrow read-only status question, inspect only the evidence needed to
+  answer it. Do not create a research plan, novelty matrix, experiment, protocol, or deliverable
+  bundle unless the question requires one.
+- For a focused review, diagnosis, or localized manuscript edit, inspect the requested artifact and
+  verify only the affected scientific or document surface.
+- For a full research plan, claim-bearing experiment, independent confirmation, or submission-ready
+  artifact, use the corresponding complete workflow and references below.
+
+Do not add work merely because this skill was triggered. Broaden only when a discovered validity
+issue makes the requested result unreliable without the additional check.
+
 ## Route the task
 
 Read only the references needed for the request:
@@ -22,17 +58,20 @@ Read only the references needed for the request:
   negative results, human scientific prose, and independent manuscript review.
 - Read `references/submission-audit.md` for LaTeX/PDF/source packaging, anonymity, margins, fonts,
   clean rebuilds, hashes, and release variants.
-- For an end-to-end research or manuscript task, read all four before making material decisions.
+- For end-to-end work, load each reference when its stage becomes relevant; do not front-load
+  submission packaging into idea assessment or experiment design.
 
 ## Establish the contract first
 
-1. Read repository instructions and the user's scope before touching files or running anything.
-2. Identify the venue, deadline, page policy, anonymity policy, available compute, execution rules,
-   and whether the request authorizes diagnosis, planning, implementation, or external publication.
-3. Inspect current papers, plans, registrations, configs, reports, manifests, and canonical
-   artifacts before proposing new work. Prefer verified existing evidence over rerunning it.
-4. Browse current primary literature for novelty, venue rules, standards, and any fact likely to
-   have changed. Treat local absence and literature novelty as separate questions.
+1. Before repository work or execution, read the applicable repository instructions and the user's
+   scope.
+2. Identify only the contract fields that can change the requested outcome. Venue, deadline, page
+   policy, and anonymity matter for submission work; compute and execution rules matter for runs.
+3. Inspect the current artifacts relevant to the request before proposing new work. Broaden to
+   papers, plans, registrations, configs, reports, manifests, or canonical artifacts only as needed.
+   Prefer verified existing evidence over rerunning it.
+4. Browse current primary literature for novelty, venue rules, standards, and unstable facts when
+   those questions are in scope. Treat local absence and literature novelty as separate questions.
 5. Record any assumption that changes the scientific question, evaluation, or claim boundary.
 
 Do not silently broaden authorization. Never violate workspace execution restrictions for the sake
@@ -40,9 +79,12 @@ of convenience.
 
 ## Use the evidence-first workflow
 
+Apply only the sections needed for the requested decision. The full sequence is for end-to-end
+claim development, not a mandatory checklist for every research question.
+
 ### 1. Inventory the state
 
-Separate the project into:
+When the task depends on project status or evidence provenance, separate the project into:
 
 - implemented and verified;
 - implemented but unverified;
@@ -113,7 +155,7 @@ preserve the audit trail and distinguish infrastructure/code failure from a scie
 
 ### 6. Interpret before writing
 
-For every result, answer:
+For every decision-relevant result, answer:
 
 1. What exact contrast was tested?
 2. Was it exploratory, development, confirmatory, or external?
@@ -154,10 +196,12 @@ first and attach every criticism to evidence in the artifact.
 
 ### 9. Audit the deliverable
 
-After any material manuscript edit, perform a clean build in the authorized environment and inspect
-the final artifact, not just the source. Verify page size/count, margins, embedded fonts, metadata,
-anonymity or author identity as appropriate, citations, references, figures, tables, equations,
-visual layout, extracted text, archive contents, clean rebuild, and checksums.
+After a manuscript edit, verify the changed content and affected rendered pages in the authorized
+environment. Use a clean build for material source changes. Expand the checks when pagination,
+citations, global styles, or scientific conclusions may have changed. For a submission or release,
+perform the full audit in `references/submission-audit.md`, including archive rebuild and hashes.
+Once the relevant checks pass, repeat or broaden them only for a new edit, failure, or unresolved
+concern. Do not launch new experiments merely to validate a wording change.
 
 Keep anonymous submission, author preprint, camera-ready, and public-release variants explicitly
 separate. Never claim that a copy, upload, push, or publication succeeded without verifying the
@@ -175,6 +219,8 @@ blocker or experiment. Use these labels consistently:
 - **Exploratory:** useful for hypothesis generation, not confirmation.
 
 Do not call a run successful merely because training completed or artifacts exist.
+Keep short answers short; reserve tables for comparisons and cite the artifact behind each
+decision-relevant number. Give a concise rationale and material assumptions, not a reasoning diary.
 
 ## Stop or reframe when necessary
 
@@ -191,9 +237,10 @@ Stop promotion of a claim when:
 Prefer a narrower true paper over a broader fragile one. Preserve negative evidence and propose the
 smallest experiment capable of changing the conclusion.
 
-## Default deliverables
+## Scale deliverables
 
-For research planning, provide:
+For a brief planning request, provide the verdict, the decisive next experiment, and its stop rule.
+For a full research plan, provide:
 
 1. verdict and narrow claim;
 2. nearest-neighbor/novelty boundary;
@@ -203,7 +250,8 @@ For research planning, provide:
 6. stop/reframe conditions;
 7. reproducibility artifacts.
 
-For manuscript work, provide:
+For a localized manuscript edit, provide the edit and the verification relevant to the affected
+surface. For a material manuscript revision or submission audit, provide:
 
 1. verdict on the current story;
 2. load-bearing result and section order;

@@ -2,6 +2,11 @@
 
 Use this reference when creating, updating, packaging, or independently checking a paper artifact.
 
+Scale the audit to the requested deliverable. A local correction needs a build when applicable and
+inspection of affected content and pages; include any pagination or reference changes it causes.
+Use the full checklist for submission readiness, a release package, or a broad layout change.
+Do not rebuild archives or repeat passed checks unless the artifact changed or a finding warrants it.
+
 ## Contents
 
 - [Identify the canonical variant](#identify-the-canonical-variant)
@@ -24,8 +29,9 @@ Keep these variants separate:
 - public reproducibility package;
 - internal development draft.
 
-Confirm the exact target before editing or copying. Never update a submitted or public artifact
-when the user authorized only a new working version.
+Resolve the exact target from the request and existing context before editing or copying. Ask only
+if a material ambiguity remains. Never update a submitted or public artifact when the user
+authorized only a new working version.
 
 Record the canonical source directory, PDF name, archive name, page limit, anonymity state, and
 required acknowledgment or author block. Treat every copy as a distinct artifact until byte or hash
